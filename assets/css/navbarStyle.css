@@ -102,6 +102,9 @@
 
 .Navbar .menu-moblie {
     display: none;
+    background: none;
+    cursor: pointer;
+    border: none;
 }
 
 .Navbar .menu2 .lang {
