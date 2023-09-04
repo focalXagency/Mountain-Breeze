@@ -1069,6 +1069,12 @@ padding-top:53px
   right: 0;
   top:50%;
 }
+.ar .ho-select img{
+  position: absolute;
+  right: auto;
+  left: 0;
+  top:50%;
+}
 .ho-learn-fillter .ho-filter-select .ho-select:last-child{
   width:60%
 }
@@ -1105,11 +1111,14 @@ padding-top: 208px;
   font-weight: 400;
 }
 .learn-more{
-  position: absolute;
-  top: 60%;
-  width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: absolute;
+  top: 60%; */
+  width: 100%;
+  margin: 0 auto;
+  margin-top:-200px ;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  padding: 0 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1205,7 +1214,7 @@ padding-top: 208px;
     width: 100% !important;
   }
   .learn-more{
-    top:70%;
+    margin-top: -100px;
     justify-content: center
   }
 }

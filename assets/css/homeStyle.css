@@ -378,6 +378,18 @@ body {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transform: translateY(-116px);
 }
+.ar .be-OurResidential .cards-container .card1 {
+    width: 100%;
+    margin-right: 0px;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    /* max-height: 563px; */
+    overflow: hidden;
+    margin-bottom: 42px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: translateY(-116px);
+}
 
 .be-OurResidential .cards-container .card1 .img-card {
     width: 40%;
@@ -647,6 +659,17 @@ body {
     margin-bottom: 42px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.ar .be-OurRestaurants .cards-container .card2 {
+    width: 100%;
+    margin-right: 0px;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    max-height: 563px;
+    overflow: hidden;
+    margin-bottom: 42px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
 .be-OurRestaurants .cards-container .card2 .img-card {
     width: 40%;
@@ -730,6 +753,11 @@ body {
         padding-left: 40px;
 
     }
+    .ar .clips .clip:hover .content-clip {
+        padding-left: 0;
+        padding-right: 80px;
+
+    }
 
 
 
@@ -786,6 +814,11 @@ body {
 
         padding-left: 30px;
 
+    }
+    .ar .clips .clip:hover .content-clip {
+
+        padding-left: 0px;
+        padding-right: 80px;
     }
 
     .be-ResortFa .sec-header .btn--outline {
@@ -970,6 +1003,17 @@ body {
         padding-left: 68px;
 
     }
+    .ar .clips .clip:hover .content-clip {
+        display: flex;
+        height: 19%;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 50px;
+        margin-bottom: 33px;
+        /* padding-left: 68px; */
+        padding-right: 120px;
+    }
 
     .clips .clip:hover .content-clip p {
         display: block;
@@ -1051,7 +1095,8 @@ body {
     }
 
 
-    .clips1 {
+    .clips1 { 
+        direction: ltr;  
         padding-bottom: 48px;
 
     }

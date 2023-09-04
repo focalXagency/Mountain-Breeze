@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="./assets/css/navbarStyle.css">
   <link rel="stylesheet" href="./assets/css/footerStyle.css">
   <title>Nasma Jabal</title>
+  <!-- tajwal font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -239,7 +243,7 @@
             </div>
           </div>
         </div>
-        <button class="btn--outline btn--see--more" type="button">
+        <button class="btn--outline btn--see--more" type="button" data-tr="booking-residential-more">
           View More
         </button>
       </div>
@@ -250,7 +254,7 @@
   <div class="modal-container">
     <form class="booking" id="booking-form">
       <div class="booking__header">
-        <h3 class="booking__heading" data-tr="booking-residential-more">Check availability Form:</h3>
+        <h3 class="booking__heading" data-tr="booking-checking-form-title">Check availability Form:</h3>
         <button>
           <img id="close-btn" src="./assets/img/close.svg" alt="" />
         </button>
@@ -259,27 +263,27 @@
         <p class="booking__sub__header" data-tr="booking-checking-contanct">Contact information:</p>
         <div class="booking__inputs">
           <div class="booking__input__group" id="name">
-            <label for="booking-full-name">Full name <span class="star--red">*</span></label>
+            <label for="booking-full-name" data-tr="booking-checking-contanct-name">Full name <span class="star--red">*</span></label>
             <input id="booking-full-name" type="text" class="booking__input" required name="fullName" />
           </div>
           <div id="booking__phone">
             <div class="booking__input__group">
-              <label for="booking-phone-number">Phone number<span class="star--red">*</span></label>
+              <label for="booking-phone-number" data-tr="booking-checking-contanct-number">Phone number<span class="star--red">*</span></label>
               <input id="booking-phone-number" type="text" class="booking__input" required name="phoneNumber" />
             </div>
-            <p class="booking__note">WhatsApp available</p>
+            <p class="booking__note" data-tr="booking-checking-contanct-whatsApp-availabe">WhatsApp available</p>
           </div>
           <div class="booking__input__group" id="email">
-            <label for="booking-email-address">Email address</label>
+            <label for="booking-email-address" data-tr="booking-checking-contanct-email">Email address</label>
             <input id="booking-email-address" type="email" class="booking__input" name="emailAddress" />
           </div>
         </div>
       </div>
       <div class="booking__connection__details">
-        <p class="booking__sub__header">Holiday information:</p>
+        <p class="booking__sub__header" data-tr="booking-checking-holiday">Holiday information:</p>
         <div class="booking__inputs">
           <div class="booking__input__group">
-            <label for="booking-check-in">Check-in date <span class="star--red">*</span></label>
+            <label for="booking-check-in" data-tr="booking-checking-holiday-in-date">Check-in date <span class="star--red">*</span></label>
             <select id="booking-check-in" class="booking__input" name="checkIn">
               <option value=""></option>
               <option value="1">8/8/2023</option>
@@ -287,7 +291,7 @@
             </select>
           </div>
           <div class="booking__input__group">
-            <label for="booking-check-out">Check-out date <span class="star--red">*</span></label>
+            <label for="booking-check-out" data-tr="booking-checking-holiday-out-date">Check-out date <span class="star--red">*</span></label>
 
             <select id="booking-check-out" class="booking__input" name="checkOut">
               <option value=""></option>
@@ -296,14 +300,14 @@
             </select>
           </div>
           <div class="booking__input__group">
-            <label for="booking-room-type">Room type</label>
+            <label for="booking-room-type" data-tr="booking-checking-holiday-room-type">Room type</label>
 
             <select id="booking-room-type" class="booking__input" name="roomType">
               <option value=""></option>
             </select>
           </div>
           <div class="booking__input__group">
-            <label for="booking-guests-number">Guests number <span class="star--red">*</span></label>
+            <label for="booking-guests-number" data-tr="booking-checking-holiday-guests-number">Guests number <span class="star--red">*</span></label>
 
             <select id="booking-guests-number" required class="booking__input" name="guestsNumber">
               <option value=""></option>
@@ -313,7 +317,7 @@
             </select>
           </div>
           <div class="booking__input__group booking__input__desc">
-            <label for="booking-desc">Description</label>
+            <label for="booking-desc" data-tr="booking-checking-holiday-description">Description</label>
             <input id="booking-desc" type="text" class="booking__input" name="desc" />
           </div>
         </div>
@@ -406,8 +410,15 @@
       </div>
     </div>
   </footer>
+  <script>
+    // let selectedLang = localStorage.getItem()
+    setTimeout(() => {
+        document.querySelector(`.${selectedLang}`).click();
+    }, 10);
+</script>
   <script src="./assets/js/nav.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/translation.js"></script>
 </body>
 
 </html>
