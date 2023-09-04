@@ -25,9 +25,9 @@
           <a href="#"><img src="./assets/img/social/youtube.png" alt="youtube" /></a>
         </div>
         <div class="link">
-          <a href="./index.html">Home</a>
-          <a href="./Explore.html">Explore</a>
-          <a href="#" class="active">Booking</a>
+          <a href="./index.html" data-tr="home">Home</a>
+          <a href="./Explore.html" data-tr="explore">Explore</a>
+          <a href="#" class="active" data-tr="booking">Booking</a>
         </div>
       </div>
       <button class="menu-moblie">
@@ -43,22 +43,22 @@
           <p class="en">En</p>
         </div>
         <div class="link">
-          <a href="./gallery.html">Gallery</a>
-          <a href="./LearnMore.html">Blog</a>
-          <a href="./ContactUs.html">Contact</a>
+          <a href="./gallery.html" data-tr="gallery">Gallery</a>
+          <a href="./LearnMore.html" data-tr="blog">Blog</a>
+          <a href="./ContactUs.html" data-tr="contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="menu3">
       <div class="link">
-        <a href="./index.html">Home</a>
-        <a href="./Explore.html">Explore</a>
-        <a href="#">Booking</a>
-        <a href="./gallery.html">Gallery</a>
-        <a href="./LearnMore.html">Blog</a>
-        <a href="./ContactUs.html">Contact</a>
+        <a href="./index.html" data-tr="home">Home</a>
+        <a href="./Explore.html" data-tr="explore">Explore</a>
+        <a href="#" data-tr="booking">Booking</a>
+        <a href="./gallery.html" data-tr="gallery">Gallery</a>
+        <a href="./LearnMore.html" data-tr="blog">Blog</a>
+        <a href="./ContactUs.html" data-tr="contact">Contact</a>
       </div>
-      <p class="keep-3">Keeb In Touch</p>
+      <p class="keep-3">Keep In Touch</p>
       <div class="social">
         <a href="#"><img src="./assets/img/social/uil_facebook.png" alt="facebook" /></a>
         <a href="#"><img src="./assets/img/social/instagram.png" alt="instagram" /></a>
@@ -69,25 +69,25 @@
   </div>
   <div id="page">
     <div class="hero">
-      <h1>BOOKING</h1>
-      <p>Book for an Extraordinary Experiment!</p>
+      <h1 data-tr="booking-title">BOOKING</h1>
+      <p data-tr="booking-para">Book for an Extraordinary Experiment!</p>
     </div>
     <div class="services">
       <form class="rooms__suggestions">
         <div class="rooms__suggestions__header">
           <div>
-            <div class="rooms__suggestions__heading">Let's suggest</div>
-            <p>
+            <div class="rooms__suggestions__heading" data-tr="booking-suggest-title">Let's suggest</div>
+            <p data-tr="booking-suggest-para">
               If you are confused about choosing the right home for you.<br />
               Send your details and leave the rest to our room reservation
               team.
             </p>
           </div>
-          <button class="btn--submit btn--suggestion" type="submit">
+          <button class="btn--submit btn--suggestion" type="submit" data-tr="booking-suggest-button-info">
             Send info
           </button>
         </div>
-        <div class="rooms__suggestions__heading">Or Search By</div>
+        <div class="rooms__suggestions__heading" data-tr="booking-searchBy-title">Or Search By</div>
         <div class="room__suggestions__selects">
           <select class="room__suggestions__select">
             <option value="">Price</option>
@@ -101,14 +101,14 @@
         </div>
 
         <div class="room__suggestions--phone">
-          <button type="submit" class="btn--submit btn--suggestion btn--suggestion--two">
+          <button type="submit" class="btn--submit btn--suggestion btn--suggestion--two" data-tr="Send Info">
             Send info
           </button>
         </div>
       </form>
       <div class="services__header" id="RESIDENTIAL">
-        <h2>Our Residential</h2>
-        <p>With the best luxury spa, Gym and Pool experiences.</p>
+        <h2 data-tr="booking-residential-title">Our Residential</h2>
+        <p data-tr="booking-residential-para">With the best luxury spa, Gym and Pool experiences.</p>
       </div>
       <div class="rooms__types">
         <div class="rooms__types__container">
@@ -250,13 +250,13 @@
   <div class="modal-container">
     <form class="booking" id="booking-form">
       <div class="booking__header">
-        <h3 class="booking__heading">Check availability Form:</h3>
+        <h3 class="booking__heading" data-tr="booking-residential-more">Check availability Form:</h3>
         <button>
           <img id="close-btn" src="./assets/img/close.svg" alt="" />
         </button>
       </div>
       <div class="booking__connection__details">
-        <p class="booking__sub__header">Contact information:</p>
+        <p class="booking__sub__header" data-tr="booking-checking-contanct">Contact information:</p>
         <div class="booking__inputs">
           <div class="booking__input__group" id="name">
             <label for="booking-full-name">Full name <span class="star--red">*</span></label>
@@ -319,7 +319,7 @@
         </div>
       </div>
       <div class="booking__footer">
-        <button id="booking-btn" class="btn--submit btn--book--now" type="submit">
+        <button id="booking-btn" class="btn--submit btn--book--now" type="submit" data-tr="booking-checking-book-now">
           Book Now
         </button>
       </div>
@@ -329,9 +329,9 @@
 
   <!-- Goodbye Modal -->
   <div class="finish__modal">
-    <div class="finish__modal__heading">Request Sended</div>
-    <p class="finish__modal__message">Your data will be matched then we will contact you.</p>
-    <button class="btn--submit btn--finish">OK</button>
+    <div class="finish__modal__heading" data-tr="booking-checking-response-title">Request Sended</div>
+    <p class="finish__modal__message" data-tr="booking-checking-response-body">Your data will be matched then we will contact you.</p>
+    <button class="btn--submit btn--finish" data-tr="booking-checking-response-button">OK</button>
 
 
   </div>
@@ -342,29 +342,29 @@
       <div class="links">
         <ul class="LinkList">
           <li>
-            <h3>INFORMATION</h3>
+            <h3 data-tr="footer-information-title">INFORMATION</h3>
           </li>
-          <li><a href="./LearnMore.html">ABOUT US</a></li>
-          <li><a href="./LearnMore.html">BLOG</a></li>
-          <li><a href="./ContactUs.html">Contact Us</a></li>
+          <li><a href="./LearnMore.html" data-tr="footer-information-about">ABOUT US</a></li>
+          <li><a href="./LearnMore.html" data-tr="footer-information-blog">BLOG</a></li>
+          <li><a href="./ContactUs.html" data-tr="footer-information-contact">Contact Us</a></li>
         </ul>
         <ul class="LinkList">
           <li>
-            <h3>LINKS TO HELP</h3>
+            <h3 data-tr="footer-links-title">LINKS TO HELP</h3>
           </li>
           <li>
-            <a href="./Explore.html#FACILITIES">FACILITIES</a>
+            <a href="./Explore.html#FACILITIES" data-tr="footer-links-facilities">FACILITIES</a>
           </li>
           <li>
-            <a href="#RESIDENTIAL">RESIDENTIAL</a>
+            <a href="#RESIDENTIAL" data-tr="footer-links-residential">RESIDENTIAL</a>
           </li>
           <li>
-            <a href="./gallery.html">Gallery</a>
+            <a href="./gallery.html" data-tr="footer-links-gallery">Gallery</a>
           </li>
         </ul>
         <ul class="LinkList">
           <li>
-            <h3>CONTACT</h3>
+            <h3 data-tr="footer-contact-title">CONTACT</h3>
           </li>
           <li>
             <p><img src="./assets/img/icion/phone.png" alt="phone icion"> 944 000 111</p>
@@ -372,11 +372,11 @@
           <li>
             <p>mountainbeeeze@gmail.com</p>
           </li>
-          <li class="lTalk-li "><a class="lTalk" href="./ContactUs.html">Let’s Talk</a></li>
+          <li class="lTalk-li "><a class="lTalk" href="./ContactUs.html" data-tr="footer-contact-talk">Let’s Talk</a></li>
         </ul>
         <ul class="LinkList">
           <li>
-            <h3 class="keep">KEEP IN TOUCH</h3>
+            <h3 class="keep" data-tr="footer-keep-in-touch-title">KEEP IN TOUCH</h3>
           </li>
           <li class="social2">
             <a href="#">
@@ -397,12 +397,12 @@
 
       </div>
       <div class="Created">
-        <p>Created by :</p>
+        <p data-tr="footer-created-by">Created by :</p>
         <img src="./assets/img/focalx.png" alt="focalX logo">
       </div>
       <div class="copyRight">
         <img src="./assets/img/icion/copyright.png" alt="">
-        <p>2023. focalX. All Rights Reserved.</p>
+        <p data-tr="footer-cpy-rights">2023. focalX. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
