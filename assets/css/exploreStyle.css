@@ -380,6 +380,17 @@ body {
     margin-bottom: 42px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.ar .cards-container .card2 {
+    width: 100%;
+    margin-right: 0px;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    max-height: 563px;
+    overflow: hidden;
+    margin-bottom: 42px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
 .cards-container .card2:last-child {
     margin-bottom: 0;
@@ -573,6 +584,18 @@ body {
 .cards-container .card1 {
     width: 100%;
     margin-right: 537px;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    max-height: 563px;
+    overflow: hidden;
+    margin-bottom: 42px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.ar .cards-container .card1 {
+    width: 100%;
+    margin-right: 0px;
     display: flex;
     border-radius: 8px;
     background-color: #fff;
@@ -951,6 +974,16 @@ body {
     margin-bottom: 42px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.ar .cards-container .card3 {
+    width: 100%;
+    margin-right: 0px;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 42px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
 .cards-container .card3:last-child {
     margin-bottom: 0;
@@ -1070,6 +1103,11 @@ body {
         padding-left: 40px;
 
     }
+    .ar .clips .clip:hover .content-clip {
+
+        padding-left: 0px;
+        padding-right: 100px;
+    }
 
     .be-OurResidential .cards-container .card1 .card-text {
 
@@ -1112,6 +1150,11 @@ body {
 
         padding-left: 30px !important;
 
+    }
+    .ar .clips .clip:hover .content-clip {
+
+        padding-left: 0px !important;
+        padding-right: 80px;
     }
 
     .cards-container .card1 .card-text .book .btn--submit {
@@ -1239,6 +1282,17 @@ body {
 
 
     }
+    .ar .clips .clip:hover .content-clip {
+        display: flex;
+        height: 19%;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 50px;
+        margin-bottom: 33px;
+        padding-left: 0px;
+        padding-right: 80px;
+    }
 
     .clips .clip:hover .content-clip p {
         display: block;
@@ -1316,7 +1370,7 @@ body {
 
     .clips1 {
         padding-bottom: 18px;
-
+        direction: ltr;
     }
 
     .clips1 .clip {

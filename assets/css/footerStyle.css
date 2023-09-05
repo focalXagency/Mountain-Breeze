@@ -82,6 +82,15 @@ footer .footer-content .links .LinkList li h3 {
     line-height: normal;
     padding-right: 142px;
 }
+.ar footer .footer-content .links .LinkList li h3 {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-left: 142px;
+    padding-right:0 ;
+}
 
 footer .footer-content .links .LinkList li .keep {
     padding-right: 0;
@@ -190,6 +199,10 @@ footer .footer-content .copyRight p {
 
     footer .footer-content .links .LinkList li h3 {
         padding-right: 0;
+    }
+    .ar .footer-content .links .LinkList li h3 {
+        padding-right: 0;
+        padding-left: 0 !important;
     }
 
 }

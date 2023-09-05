@@ -113,7 +113,7 @@
     margin-bottom: 17px;
     justify-content: flex-end;
     align-items: center;
-
+    text-transform: uppercase;
 }
 
 .Navbar .menu2 .lang p {
@@ -124,20 +124,20 @@
 
 .Navbar .menu2 .lang .lang-line {
     content: "";
-    border-left: 3px solid rgba(177, 173, 173, 0.68);
+    border-left: 3px solid white;
     height: 20px;
 
 }
 .Navbar .menu2 .lang:hover .lang-line {
-
     border-left: 3px solid #fff;
-  
-
 }
 
 .Navbar .menu2 .lang p:hover {
     color: var(--color-font);
 
+}
+.Navbar .menu2 .lang p.active {
+    color: var(--color-font);
 }
 
 

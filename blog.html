@@ -13,6 +13,10 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,600&display=swap"
         rel="stylesheet">
     <title>AboutUs</title>
+    <!-- tajwal font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -27,9 +31,9 @@
                     <a href="#"><img src="./assets/img/social/youtube.png" alt="youtube" /></a>
                 </div>
                 <div class="link">
-                    <a href="./index.html">Home</a>
-                    <a href="./Explore.html">Explore</a>
-                    <a href="./booking.html" class="active">Booking</a>
+                    <a href="./index.html" data-tr="home">Home</a>
+                    <a href="./Explore.html" data-tr="explore">Explore</a>
+                    <a href="./booking.html" class="active" data-tr="booking">Booking</a>
                 </div>
             </div>
             <button class="menu-moblie">
@@ -45,22 +49,22 @@
                     <p class="en">En</p>
                 </div>
                 <div class="link">
-                    <a href="./gallery.html">Gallery</a>
-                    <a href="#">Blog</a>
-                    <a href="./ContactUs.html">Contact</a>
+                    <a href="./gallery.html" data-tr="gallery">Gallery</a>
+                    <a href="#" data-tr="blog">Blog</a>
+                    <a href="./ContactUs.html" data-tr="contact">Contact</a>
                 </div>
             </div>
         </div>
         <div class="menu3">
             <div class="link">
-                <a href="./index.html">Home</a>
-                <a href="./Explore.html">Explore</a>
-                <a href="./booking.html">Booking</a>
-                <a href="./gallery.html">Gallery</a>
-                <a href="#">Blog</a>
-                <a href="./ContactUs.html">Contact</a>
+                <a href="./index.html" data-tr="home">Home</a>
+                <a href="./Explore.html" data-tr="explore">Explore</a>
+                <a href="./booking.html" data-tr="booking">Booking</a>
+                <a href="./gallery.html" data-tr="gallery">Gallery</a>
+                <a href="#" data-tr="blog">Blog</a>
+                <a href="./ContactUs.html" data-tr="contact">Contact</a>
             </div>
-            <p class="keep-3">Keeb In Touch</p>
+            <p class="keep-3">Keep In Touch</p>
             <div class="social">
                 <a href="#"><img src="./assets/img/social/uil_facebook.png" alt="facebook" /></a>
                 <a href="#"><img src="./assets/img/social/instagram.png" alt="instagram" /></a>
@@ -70,7 +74,7 @@
         </div>
     </div>
     <section class="ho-hero-about">
-        <h2>About Mountain Breeze Resort</h2>
+        <h2 data-tr="">About Mountain Breeze Resort</h2>
     </section>
     <!-- end hero section  -->
     <!-- start about section  -->
@@ -221,9 +225,14 @@
 
 
 
-
+    <script>
+        setTimeout(() => {
+                document.querySelector(`.${selectedLang}`).click();
+            }, 10);
+    </script>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/translation.js"></script>
 </body>
 
 </html>

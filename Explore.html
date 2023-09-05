@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- tajwal font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
@@ -30,9 +34,9 @@
                         <a href="#"><img src="./assets/img/social/youtube.png" alt="youtube" /></a>
                     </div>
                     <div class="link">
-                        <a href="./index.html">Home</a>
-                        <a href="#" class="active">Explore</a>
-                        <a href="./booking.html">Booking</a>
+                        <a href="./index.html" data-tr="home">Home</a>
+                        <a href="#" class="active" data-tr="explore">Explore</a>
+                        <a href="./booking.html" data-tr="booking">Booking</a>
                     </div>
                 </div>
                 <button class="menu-moblie">
@@ -48,20 +52,20 @@
                         <p class="en">En</p>
                     </div>
                     <div class="link">
-                        <a href="./gallery.html">Gallery</a>
-                        <a href="./LearnMore.html">Blog</a>
-                        <a href="./ContactUs.html">Contact</a>
+                        <a href="./gallery.html" data-tr="gallery">Gallery</a>
+                        <a href="./LearnMore.html" data-tr="blog">Blog</a>
+                        <a href="./ContactUs.html"  data-tr="contact">Contact</a>
                     </div>
                 </div>
             </div>
             <div class="menu3">
                 <div class="link">
-                    <a href="./index.html">Home</a>
-                    <a href="#">Explore</a>
-                    <a href="./booking.html">Booking</a>
-                    <a href="./gallery.html">Gallery</a>
-                    <a href="./LearnMore.html">Blog</a>
-                    <a href="./ContactUs.html">Contact</a>
+                    <a href="./index.html" data-tr="home">Home</a>
+                    <a href="#" data-tr="explore">Explore</a>
+                    <a href="./booking.html" data-tr="booking">Booking</a>
+                    <a href="./gallery.html" data-tr="gallery">Gallery</a>
+                    <a href="./LearnMore.html" data-tr="blog">Blog</a>
+                    <a href="./ContactUs.html" data-tr="contact">Contact</a>
                 </div>
                 <p class="keep-3">Keeb In Touch</p>
                 <div class="social">
@@ -74,8 +78,8 @@
         </div>
         <div class="be-hero">
             <div class="be-heroContent">
-                <h1 class="be-hero-h1">Explore The Resort</h1>
-                <p class="be-hero-p1">Explore all sections of the resort</p>
+                <h1 class="be-hero-h1" data-tr="explore-title">Explore The Resort</h1>
+                <p class="be-hero-p1" data-tr="explore-title-para">Explore all sections of the resort</p>
                 <div class="dots">
 
                 </div>
@@ -137,25 +141,25 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path d="M19.922 7.60352C13.0834 7.60352 7.52322 13.1651 7.52322 20.0023C7.52322 26.8347 13.0833 32.3979 19.922 32.3979C26.7544 32.3979 32.3207 26.8347 32.3207 20.0038C32.3207 13.1651 26.7589 7.60352 19.922 7.60352ZM19.922 31.3208C13.6788 31.3208 8.60329 26.2453 8.60329 20.0037C8.60329 13.7621 13.6772 8.67729 19.922 8.67729C26.1667 8.67729 31.2407 13.762 31.2407 20.0037C31.2407 26.2454 26.1667 31.3208 19.922 31.3208ZM30.4469 20.0037C30.4469 25.8114 25.7345 30.5238 19.9235 30.5238C14.1111 30.5238 9.39867 25.8099 9.39867 20.0037C9.39867 14.1898 14.1126 9.47739 19.9235 9.47739C25.7345 9.47582 30.4469 14.1898 30.4469 20.0037ZM6.50471 8.93428L6.50786 15.0497H6.49857C6.437 17.0006 4.29858 17.7451 4.29858 17.7451V21.6699H4.30173L4.29858 30.6947C4.29858 30.6947 3.43392 31.8116 2.31384 30.6947V17.7467H2.33998C1.03536 17.1913 0.0707034 16.999 0.00913317 15.0513H0V8.93428L0.980084 8.92972L1.4569 14.8468H2.61398L2.76011 8.80815H3.70319L3.81704 14.8468H5.17394L5.4862 8.93428H6.50471ZM39.6978 19.3467H37.2993V31.4778H34.5284V8.5266H37.2993C37.3008 8.52502 41.0747 13.3143 39.6978 19.3467Z" fill="currentColor"/>
                     </svg>
-                <p>Restaurant</p>
+                <p data-tr="explore-brand-resturant">Restaurant</p>
             </button>
             <button class="section-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 41 40" fill="none">
                     <path d="M32.1668 5.00065C32.1668 4.55862 31.9912 4.1347 31.6787 3.82214C31.3661 3.50958 30.9422 3.33398 30.5002 3.33398C30.0581 3.33398 29.6342 3.50958 29.3216 3.82214C29.0091 4.1347 28.8335 4.55862 28.8335 5.00065V10.0007L20.5002 3.33398L3.8335 16.6673H7.16683V36.6673H17.1668V30.0007C17.1668 29.1166 17.518 28.2687 18.1431 27.6436C18.7683 27.0185 19.6161 26.6673 20.5002 26.6673C21.3842 26.6673 22.2321 27.0185 22.8572 27.6436C23.4823 28.2687 23.8335 29.1166 23.8335 30.0007V36.6673H33.8335V16.6673H37.1668L32.1668 12.6673V5.00065ZM13.8335 30.0007H10.5002V26.6673H13.8335V30.0007ZM13.8335 23.334H10.5002V20.0007H13.8335V23.334ZM23.8335 23.334H17.1668V20.0007H23.8335V23.334ZM30.5002 30.0007H27.1668V26.6673H30.5002V30.0007ZM30.5002 23.334H27.1668V20.0007H30.5002V23.334Z" fill="currentColor"/>
                     </svg>
-                <p>Chalet</p>
+                <p data-tr="explore-brand-chalet">Chalet</p>
             </button>
             <button class="section-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path d="M37.3985 18.6962V14.7626C37.3985 12.8222 35.8196 11.2435 33.8786 11.2435C33.229 11.2435 32.6203 11.4211 32.0974 11.7291V11.2923C32.0974 9.35086 30.5182 7.77148 28.5771 7.77148C26.636 7.77148 25.0568 9.35086 25.0568 11.2923V18.6968H14.943V11.2923C14.943 9.35086 13.3637 7.77148 11.4226 7.77148C9.48148 7.77148 7.90227 9.35086 7.90227 11.2923V11.7291C7.3793 11.4211 6.7707 11.2435 6.12109 11.2435C4.18023 11.2435 2.60117 12.8221 2.60117 14.7626V18.6968H0V21.3055H2.60109V25.238C2.60109 27.1795 4.18 28.7588 6.12102 28.7588C6.77063 28.7588 7.3793 28.5812 7.90219 28.2731V28.7093C7.90219 30.6507 9.48141 32.2301 11.4225 32.2301C13.3636 32.2301 14.9429 30.6507 14.9429 28.7093V21.3055H25.0567V28.7093C25.0567 30.6507 26.6359 32.2301 28.577 32.2301C30.5181 32.2301 32.0973 30.6507 32.0973 28.7093V28.2731C32.6203 28.5813 33.2289 28.7588 33.8785 28.7588C35.8194 28.7588 37.3984 27.1795 37.3984 25.238V21.3048L39.9992 21.3055L40 18.6968L37.3985 18.6962Z" fill="currentColor"/>
                     </svg>
-                <p>GYM</p>
+                <p data-tr="explore-brand-Gym">GYM</p>
             </button>
             <button class="section-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="50" viewBox="0 0 60 50" fill="currentColor">
                     <path d="M58.125 17.4102C57 17.4102 56.25 18.1602 56.25 19.2852C56.25 30.1602 49.5 39.5352 40.125 43.4727C45.375 38.9727 48.75 32.4102 48.75 24.9102C48.75 11.4102 37.875 0.535156 24.375 0.535156C10.875 0.535156 0 11.4102 0 24.9102C0 38.4102 10.875 49.2852 24.375 49.2852H30C46.5 49.2852 60 35.7852 60 19.2852C60 18.1602 59.25 17.4102 58.125 17.4102ZM11.0625 11.5977C13.125 9.34766 16.875 9.34766 18.9375 11.5977C20.0625 12.5352 20.625 14.0352 20.625 15.5352C20.625 17.0352 20.0625 18.5352 18.9375 19.4727C18 20.5977 16.5 21.1602 15 21.1602C13.5 21.1602 12 20.5977 11.0625 19.4727C9.9375 18.5352 9.375 17.0352 9.375 15.5352C9.375 14.0352 9.9375 12.5352 11.0625 11.5977ZM18.9375 38.2227C18 39.3477 16.5 39.9102 15 39.9102C13.5 39.9102 12 39.3477 11.0625 38.2227C9.9375 37.2852 9.375 35.7852 9.375 34.2852C9.375 32.7852 9.9375 31.2852 11.0625 30.3477C13.125 28.2852 16.875 28.2852 18.9375 30.3477C20.0625 31.4727 20.625 32.7852 20.625 34.2852C20.625 35.7852 20.0625 37.2852 18.9375 38.2227ZM20.4375 28.8477C19.3125 27.9102 18.75 26.4102 18.75 24.9102C18.75 23.4102 19.3125 21.9102 20.4375 20.9727C22.5 18.9102 26.25 18.9102 28.3125 20.9727C29.4375 22.0977 30 23.4102 30 24.9102C30 26.4102 29.4375 27.9102 28.3125 28.8477C27.375 29.9727 25.875 30.5352 24.375 30.5352C22.875 30.5352 21.375 29.9727 20.4375 28.8477ZM37.6875 38.2227C36.75 39.3477 35.25 39.9102 33.75 39.9102C32.25 39.9102 30.75 39.3477 29.8125 38.2227C28.6875 37.2852 28.125 35.7852 28.125 34.2852C28.125 32.7852 28.6875 31.2852 29.8125 30.3477C31.875 28.2852 35.625 28.2852 37.6875 30.3477C38.8125 31.4727 39.375 32.7852 39.375 34.2852C39.375 35.7852 38.8125 37.2852 37.6875 38.2227ZM37.6875 19.4727C36.75 20.5977 35.25 21.1602 33.75 21.1602C32.25 21.1602 30.75 20.5977 29.8125 19.4727C28.6875 18.5352 28.125 17.0352 28.125 15.5352C28.125 14.0352 28.6875 12.5352 29.8125 11.5977C31.875 9.53516 35.625 9.53516 37.6875 11.5977C38.8125 12.5352 39.375 14.0352 39.375 15.5352C39.375 17.0352 38.8125 18.5352 37.6875 19.4727Z" fill="currentColor"/>
                     </svg>
-                <p>CINEMA</p>
+                <p data-tr="explore-brand-cinema">CINEMA</p>
             </button>
             <button class="section-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 41 37" fill="none">
@@ -172,13 +176,13 @@
                       </clipPath>
                     </defs>
                   </svg>
-                <p>POOL</p>
+                <p data-tr="explore-brand-pool">POOL</p>
             </button>
             <button class="section-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path d="M5.5 32.9551C5.5 34.6113 6.87574 35.9551 8.57143 35.9551H31.0952C32.7909 35.9551 34.1667 34.6113 34.1667 32.9551V15.9551H5.5V32.9551ZM25.9762 20.7051C25.9762 20.2926 26.3217 19.9551 26.744 19.9551H29.3036C29.7259 19.9551 30.0714 20.2926 30.0714 20.7051V23.2051C30.0714 23.6176 29.7259 23.9551 29.3036 23.9551H26.744C26.3217 23.9551 25.9762 23.6176 25.9762 23.2051V20.7051ZM25.9762 28.7051C25.9762 28.2926 26.3217 27.9551 26.744 27.9551H29.3036C29.7259 27.9551 30.0714 28.2926 30.0714 28.7051V31.2051C30.0714 31.6176 29.7259 31.9551 29.3036 31.9551H26.744C26.3217 31.9551 25.9762 31.6176 25.9762 31.2051V28.7051ZM17.7857 20.7051C17.7857 20.2926 18.1313 19.9551 18.5536 19.9551H21.1131C21.5354 19.9551 21.881 20.2926 21.881 20.7051V23.2051C21.881 23.6176 21.5354 23.9551 21.1131 23.9551H18.5536C18.1313 23.9551 17.7857 23.6176 17.7857 23.2051V20.7051ZM17.7857 28.7051C17.7857 28.2926 18.1313 27.9551 18.5536 27.9551H21.1131C21.5354 27.9551 21.881 28.2926 21.881 28.7051V31.2051C21.881 31.6176 21.5354 31.9551 21.1131 31.9551H18.5536C18.1313 31.9551 17.7857 31.6176 17.7857 31.2051V28.7051ZM9.59524 20.7051C9.59524 20.2926 9.94077 19.9551 10.3631 19.9551H12.9226C13.3449 19.9551 13.6905 20.2926 13.6905 20.7051V23.2051C13.6905 23.6176 13.3449 23.9551 12.9226 23.9551H10.3631C9.94077 23.9551 9.59524 23.6176 9.59524 23.2051V20.7051ZM9.59524 28.7051C9.59524 28.2926 9.94077 27.9551 10.3631 27.9551H12.9226C13.3449 27.9551 13.6905 28.2926 13.6905 28.7051V31.2051C13.6905 31.6176 13.3449 31.9551 12.9226 31.9551H10.3631C9.94077 31.9551 9.59524 31.6176 9.59524 31.2051V28.7051ZM31.0952 7.95508H28.0238V4.95508C28.0238 4.40508 27.5631 3.95508 27 3.95508H24.9524C24.3893 3.95508 23.9286 4.40508 23.9286 4.95508V7.95508H15.7381V4.95508C15.7381 4.40508 15.2774 3.95508 14.7143 3.95508H12.6667C12.1036 3.95508 11.6429 4.40508 11.6429 4.95508V7.95508H8.57143C6.87574 7.95508 5.5 9.29883 5.5 10.9551V13.9551H34.1667V10.9551C34.1667 9.29883 32.7909 7.95508 31.0952 7.95508Z" fill="currentColor"/>
                     </svg>
-                <p>EVENTS</p>
+                <p data-tr="explore-brand-events">EVENTS</p>
             </button>
         </div>
         <div class="slider-item">
@@ -188,7 +192,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                             <path d="M19.922 7.60352C13.0834 7.60352 7.52322 13.1651 7.52322 20.0023C7.52322 26.8347 13.0833 32.3979 19.922 32.3979C26.7544 32.3979 32.3207 26.8347 32.3207 20.0038C32.3207 13.1651 26.7589 7.60352 19.922 7.60352ZM19.922 31.3208C13.6788 31.3208 8.60329 26.2453 8.60329 20.0037C8.60329 13.7621 13.6772 8.67729 19.922 8.67729C26.1667 8.67729 31.2407 13.762 31.2407 20.0037C31.2407 26.2454 26.1667 31.3208 19.922 31.3208ZM30.4469 20.0037C30.4469 25.8114 25.7345 30.5238 19.9235 30.5238C14.1111 30.5238 9.39867 25.8099 9.39867 20.0037C9.39867 14.1898 14.1126 9.47739 19.9235 9.47739C25.7345 9.47582 30.4469 14.1898 30.4469 20.0037ZM6.50471 8.93428L6.50786 15.0497H6.49857C6.437 17.0006 4.29858 17.7451 4.29858 17.7451V21.6699H4.30173L4.29858 30.6947C4.29858 30.6947 3.43392 31.8116 2.31384 30.6947V17.7467H2.33998C1.03536 17.1913 0.0707034 16.999 0.00913317 15.0513H0V8.93428L0.980084 8.92972L1.4569 14.8468H2.61398L2.76011 8.80815H3.70319L3.81704 14.8468H5.17394L5.4862 8.93428H6.50471ZM39.6978 19.3467H37.2993V31.4778H34.5284V8.5266H37.2993C37.3008 8.52502 41.0747 13.3143 39.6978 19.3467Z" fill="currentColor"/>
                             </svg>
-                        <p>Restaurant</p>
+                        <p data-tr="explore-brand-resturant">Restaurant</p>
                     </button>
              
                 
@@ -196,7 +200,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 41 40" fill="none">
                             <path d="M32.1668 5.00065C32.1668 4.55862 31.9912 4.1347 31.6787 3.82214C31.3661 3.50958 30.9422 3.33398 30.5002 3.33398C30.0581 3.33398 29.6342 3.50958 29.3216 3.82214C29.0091 4.1347 28.8335 4.55862 28.8335 5.00065V10.0007L20.5002 3.33398L3.8335 16.6673H7.16683V36.6673H17.1668V30.0007C17.1668 29.1166 17.518 28.2687 18.1431 27.6436C18.7683 27.0185 19.6161 26.6673 20.5002 26.6673C21.3842 26.6673 22.2321 27.0185 22.8572 27.6436C23.4823 28.2687 23.8335 29.1166 23.8335 30.0007V36.6673H33.8335V16.6673H37.1668L32.1668 12.6673V5.00065ZM13.8335 30.0007H10.5002V26.6673H13.8335V30.0007ZM13.8335 23.334H10.5002V20.0007H13.8335V23.334ZM23.8335 23.334H17.1668V20.0007H23.8335V23.334ZM30.5002 30.0007H27.1668V26.6673H30.5002V30.0007ZM30.5002 23.334H27.1668V20.0007H30.5002V23.334Z" fill="currentColor"/>
                             </svg>
-                        <p>Chalet</p>
+                        <p data-tr="explore-brand-chalet">Chalet</p>
                     </button>
                
                
@@ -204,14 +208,14 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                             <path d="M37.3985 18.6962V14.7626C37.3985 12.8222 35.8196 11.2435 33.8786 11.2435C33.229 11.2435 32.6203 11.4211 32.0974 11.7291V11.2923C32.0974 9.35086 30.5182 7.77148 28.5771 7.77148C26.636 7.77148 25.0568 9.35086 25.0568 11.2923V18.6968H14.943V11.2923C14.943 9.35086 13.3637 7.77148 11.4226 7.77148C9.48148 7.77148 7.90227 9.35086 7.90227 11.2923V11.7291C7.3793 11.4211 6.7707 11.2435 6.12109 11.2435C4.18023 11.2435 2.60117 12.8221 2.60117 14.7626V18.6968H0V21.3055H2.60109V25.238C2.60109 27.1795 4.18 28.7588 6.12102 28.7588C6.77063 28.7588 7.3793 28.5812 7.90219 28.2731V28.7093C7.90219 30.6507 9.48141 32.2301 11.4225 32.2301C13.3636 32.2301 14.9429 30.6507 14.9429 28.7093V21.3055H25.0567V28.7093C25.0567 30.6507 26.6359 32.2301 28.577 32.2301C30.5181 32.2301 32.0973 30.6507 32.0973 28.7093V28.2731C32.6203 28.5813 33.2289 28.7588 33.8785 28.7588C35.8194 28.7588 37.3984 27.1795 37.3984 25.238V21.3048L39.9992 21.3055L40 18.6968L37.3985 18.6962Z" fill="currentColor"/>
                             </svg>
-                        <p>GYM</p>
+                        <p data-tr="explore-brand-Gym">GYM</p>
                     </button>
                
                     <button class="section-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="50" viewBox="0 0 60 50" fill="none">
                             <path d="M58.125 17.4102C57 17.4102 56.25 18.1602 56.25 19.2852C56.25 30.1602 49.5 39.5352 40.125 43.4727C45.375 38.9727 48.75 32.4102 48.75 24.9102C48.75 11.4102 37.875 0.535156 24.375 0.535156C10.875 0.535156 0 11.4102 0 24.9102C0 38.4102 10.875 49.2852 24.375 49.2852H30C46.5 49.2852 60 35.7852 60 19.2852C60 18.1602 59.25 17.4102 58.125 17.4102ZM11.0625 11.5977C13.125 9.34766 16.875 9.34766 18.9375 11.5977C20.0625 12.5352 20.625 14.0352 20.625 15.5352C20.625 17.0352 20.0625 18.5352 18.9375 19.4727C18 20.5977 16.5 21.1602 15 21.1602C13.5 21.1602 12 20.5977 11.0625 19.4727C9.9375 18.5352 9.375 17.0352 9.375 15.5352C9.375 14.0352 9.9375 12.5352 11.0625 11.5977ZM18.9375 38.2227C18 39.3477 16.5 39.9102 15 39.9102C13.5 39.9102 12 39.3477 11.0625 38.2227C9.9375 37.2852 9.375 35.7852 9.375 34.2852C9.375 32.7852 9.9375 31.2852 11.0625 30.3477C13.125 28.2852 16.875 28.2852 18.9375 30.3477C20.0625 31.4727 20.625 32.7852 20.625 34.2852C20.625 35.7852 20.0625 37.2852 18.9375 38.2227ZM20.4375 28.8477C19.3125 27.9102 18.75 26.4102 18.75 24.9102C18.75 23.4102 19.3125 21.9102 20.4375 20.9727C22.5 18.9102 26.25 18.9102 28.3125 20.9727C29.4375 22.0977 30 23.4102 30 24.9102C30 26.4102 29.4375 27.9102 28.3125 28.8477C27.375 29.9727 25.875 30.5352 24.375 30.5352C22.875 30.5352 21.375 29.9727 20.4375 28.8477ZM37.6875 38.2227C36.75 39.3477 35.25 39.9102 33.75 39.9102C32.25 39.9102 30.75 39.3477 29.8125 38.2227C28.6875 37.2852 28.125 35.7852 28.125 34.2852C28.125 32.7852 28.6875 31.2852 29.8125 30.3477C31.875 28.2852 35.625 28.2852 37.6875 30.3477C38.8125 31.4727 39.375 32.7852 39.375 34.2852C39.375 35.7852 38.8125 37.2852 37.6875 38.2227ZM37.6875 19.4727C36.75 20.5977 35.25 21.1602 33.75 21.1602C32.25 21.1602 30.75 20.5977 29.8125 19.4727C28.6875 18.5352 28.125 17.0352 28.125 15.5352C28.125 14.0352 28.6875 12.5352 29.8125 11.5977C31.875 9.53516 35.625 9.53516 37.6875 11.5977C38.8125 12.5352 39.375 14.0352 39.375 15.5352C39.375 17.0352 38.8125 18.5352 37.6875 19.4727Z" fill="currentColor"/>
                             </svg>
-                        <p>CINEMA</p>
+                        <p data-tr="explore-brand-cinema">CINEMA</p>
                     </button>
                 
                     <button class="section-item">
@@ -229,7 +233,7 @@
                               </clipPath>
                             </defs>
                           </svg>
-                        <p>POOL</p>
+                        <p data-tr="explore-brand-pool">POOL</p>
                     </button>
                 
                 
@@ -237,7 +241,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                             <path d="M5.5 32.9551C5.5 34.6113 6.87574 35.9551 8.57143 35.9551H31.0952C32.7909 35.9551 34.1667 34.6113 34.1667 32.9551V15.9551H5.5V32.9551ZM25.9762 20.7051C25.9762 20.2926 26.3217 19.9551 26.744 19.9551H29.3036C29.7259 19.9551 30.0714 20.2926 30.0714 20.7051V23.2051C30.0714 23.6176 29.7259 23.9551 29.3036 23.9551H26.744C26.3217 23.9551 25.9762 23.6176 25.9762 23.2051V20.7051ZM25.9762 28.7051C25.9762 28.2926 26.3217 27.9551 26.744 27.9551H29.3036C29.7259 27.9551 30.0714 28.2926 30.0714 28.7051V31.2051C30.0714 31.6176 29.7259 31.9551 29.3036 31.9551H26.744C26.3217 31.9551 25.9762 31.6176 25.9762 31.2051V28.7051ZM17.7857 20.7051C17.7857 20.2926 18.1313 19.9551 18.5536 19.9551H21.1131C21.5354 19.9551 21.881 20.2926 21.881 20.7051V23.2051C21.881 23.6176 21.5354 23.9551 21.1131 23.9551H18.5536C18.1313 23.9551 17.7857 23.6176 17.7857 23.2051V20.7051ZM17.7857 28.7051C17.7857 28.2926 18.1313 27.9551 18.5536 27.9551H21.1131C21.5354 27.9551 21.881 28.2926 21.881 28.7051V31.2051C21.881 31.6176 21.5354 31.9551 21.1131 31.9551H18.5536C18.1313 31.9551 17.7857 31.6176 17.7857 31.2051V28.7051ZM9.59524 20.7051C9.59524 20.2926 9.94077 19.9551 10.3631 19.9551H12.9226C13.3449 19.9551 13.6905 20.2926 13.6905 20.7051V23.2051C13.6905 23.6176 13.3449 23.9551 12.9226 23.9551H10.3631C9.94077 23.9551 9.59524 23.6176 9.59524 23.2051V20.7051ZM9.59524 28.7051C9.59524 28.2926 9.94077 27.9551 10.3631 27.9551H12.9226C13.3449 27.9551 13.6905 28.2926 13.6905 28.7051V31.2051C13.6905 31.6176 13.3449 31.9551 12.9226 31.9551H10.3631C9.94077 31.9551 9.59524 31.6176 9.59524 31.2051V28.7051ZM31.0952 7.95508H28.0238V4.95508C28.0238 4.40508 27.5631 3.95508 27 3.95508H24.9524C24.3893 3.95508 23.9286 4.40508 23.9286 4.95508V7.95508H15.7381V4.95508C15.7381 4.40508 15.2774 3.95508 14.7143 3.95508H12.6667C12.1036 3.95508 11.6429 4.40508 11.6429 4.95508V7.95508H8.57143C6.87574 7.95508 5.5 9.29883 5.5 10.9551V13.9551H34.1667V10.9551C34.1667 9.29883 32.7909 7.95508 31.0952 7.95508Z" fill="currentColor"/>
                             </svg>
-                        <p>EVENTS</p>
+                        <p data-tr="explore-brand-events">EVENTS</p>
                     </button>
               
             </div>
@@ -251,15 +255,15 @@
             </div>
         </div>
           <div class="section-top">
-        <h1 class="section-h1"><span>RESORT</span> FACILITIES</h1>
-        <p class="section-p">With the best luxury spa, Gym and Pool experiences. </p>
+        <h1 class="section-h1" data-tr="explore-facilities"><span>RESORT</span> FACILITIES</h1>
+        <p class="section-p" data-tr="explore-facilities-para">With the best luxury spa, Gym and Pool experiences. </p>
     </div>
     </section>
 
     <section class="be-OurRestaurants">
         <div class="section-top">
-            <h1 class="section-h1">Our Restaurants</h1>
-            <p class="section-p">We're thrilled to serve you and we hope you have a wonderful dining experience</p>
+            <h1 class="section-h1" data-tr="explore-resturant-title">Our Restaurants</h1>
+            <p class="section-p" data-tr="explore-resturant-para">We're thrilled to serve you and we hope you have a wonderful dining experience</p>
         </div>
         <div class="cards-container">
             <div class="card2">
@@ -267,9 +271,9 @@
                     <img src="./assets/img/RESORTFACILITIES/1.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Main Restaurant</h1>
-                    <p class="card2-p">at the 3rd floor</p>
-                    <p class="card2-p2">a
+                    <h1 class="card2-h1" data-tr="home-resturants-main-rest-title">Main Restaurant</h1>
+                    <p class="card2-p" data-tr="home-resturants-main-rest-position">at the 3rd floor</p>
+                    <p class="card2-p2" data-tr="home-resturants-main-rest-describe">
                         We warmly welcome you to our restaurant, where we strive to create an unparalleled dining
                         experience that delights the senses and nourishes the soul.
                         Our team of culinary experts is dedicated to sourcing only the freshest and highest quality
@@ -285,9 +289,9 @@
                     <img src="./assets/img/RESORTFACILITIES/2.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Qasab Restaurant</h1>
-                    <p class="card2-p">in the fresh air</p>
-                    <p class="card2-p2">a
+                    <h1 class="card2-h1" data-tr="home-resturants-qasab-rest-title">Qasab Restaurant</h1>
+                    <p class="card2-p" data-tr="home-resturants-qasab-rest-position">in the fresh air</p>
+                    <p class="card2-p2" data-tr="home-resturants-qasab-rest-describe">
                         As you peruse our menu, you'll discover an array of exquisite dishes that showcase the finest
                         flavors and textures. . Our chefs are passionate about creating culinary masterpieces that are
                         not only delicious but also visually stunning. To complement our menu, we offer an extensive
@@ -302,22 +306,22 @@
             <div class=" clip clip1">
                 <img src="./assets/img/ourResturant/res1.jpg" alt="">
                 <div class="content-clip">
-                    <h1>Western Food</h1>
-                    <p class="desc">The most delicious western dishes.</p>
+                    <h1 data-tr="explore-food-section-western">Western Food</h1>
+                    <p class="desc" data-tr="explore-food-section-western-para">The most delicious western dishes.</p>
                 </div>
             </div>
             <div class="clip clip2">
                 <img src="./assets/img/ourResturant/res2.jpg" alt="">
                 <div class="content-clip">
-                    <h1>Oriental Food</h1>
-                    <p class="desc">The most delicious western dishes.</p>
+                    <h1 data-tr="explore-food-section-oriental">Oriental Food</h1>
+                    <p class="desc" data-tr="explore-food-section-oriental-para">The most delicious western dishes.</p>
                 </div>
             </div>
             <div class="clip clip3">
                 <img src="./assets/img/ourResturant/res3.jpg" alt="">
                 <div class="content-clip">
-                    <h1>Traditional Food</h1>
-                    <p class="desc">The most delicious western dishes.</p>
+                    <h1 data-tr="explore-food-section-traditional">Traditional Food</h1>
+                    <p class="desc" data-tr="explore-food-section-traditional-para">The most delicious western dishes.</p>
                 </div>
             </div>
         </div>
@@ -325,8 +329,8 @@
 
     <section class="be-OurChaletss">
         <div class="section-top">
-            <h1 class="section-h1">Our Chalets</h1>
-            <p class="section-p">With the best luxury spa, Gym and Pool experiences. </p>
+            <h1 class="section-h1" data-tr="explore-chaltes-title">Our Chalets</h1>
+            <p class="section-p" data-tr="explore-chaltes-para">With the best luxury spa, Gym and Pool experiences. </p>
         </div>
         <div class="cards-container">
             <div class="card1">
@@ -409,8 +413,8 @@
 
     <section class="be-Activetys">
         <div class="section-top">
-            <h1 class="section-h1">Activetys</h1>
-            <p class="section-p">Never stop your daily activity.</p>
+            <h1 class="section-h1" data-tr="explore-activities-title">Activeties</h1>
+            <p class="section-p" data-tr="explore-activities-para">Never stop your daily activity.</p>
         </div>
         <div class="cards-container">
             <div class="card2">
@@ -418,9 +422,9 @@
                     <img src="./assets/img/activety/activ2.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Main Restaurant</h1>
-                    <p class="card2-p">at the 3rd floor</p>
-                    <p class="card2-p2">a
+                    <h1 class="card2-h1" data-tr="explore-Gym-card-title">GYM</h1>
+                    <p class="card2-p" data-tr="explore-Gym-card-position">at the 3rd floor</p>
+                    <p class="card2-p2" data-tr="explore-Gym-card-desc">
                         We warmly welcome you to our restaurant, where we strive to create an unparalleled dining
                         experience that delights the senses and nourishes the soul.
                         Our team of culinary experts is dedicated to sourcing only the freshest and highest quality
@@ -436,9 +440,9 @@
                     <img src="./assets/img/activety/activ3.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Cinema</h1>
-                    <p class="card2-p">at the 5rd floor</p>
-                    <p class="card2-p2">
+                    <h1 class="card2-h1" data-tr="explore-Cinema-card-title">Cinema</h1>
+                    <p class="card2-p" data-tr="explore-Cinema-card-position">at the 5rd floor</p>
+                    <p class="card2-p2" data-tr="explore-Cinema-card-desc">
                         Our cinema is equipped with state-of-the-art technology to provide you with the best possible
                         cinematic experience. From crystal-clear images to immersive sound, we take pride in delivering
                         a high-quality movie experience that will transport you to another world.
@@ -451,8 +455,8 @@
     </section>
     <section class="be-TheNature">
         <div class="section-top">
-            <h1 class="section-h1">The Nature</h1>
-            <p class="section-p">Nature is a source of wonder and inspiration.</p>
+            <h1 class="section-h1" data-tr="explore-nature-title">The Nature</h1>
+            <p class="section-p" data-tr="explore-nature-para">Nature is a source of wonder and inspiration.</p>
         </div>
         <div class="cards-container">
             <div class="card2">
@@ -460,9 +464,9 @@
                     <img src="./assets/img/nature/nature1.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Aljawba</h1>
-                    <p class="card2-p">65 km away</p>
-                    <p class="card2-p2">
+                    <h1 class="card2-h1" data-tr="explore-nature-card-aljawba-title">Aljawba</h1>
+                    <p class="card2-p" data-tr="explore-nature-card-aljawba-position">65 km away</p>
+                    <p class="card2-p2" data-tr="explore-nature-card-aljawba-desc">
                         We are thrilled to welcome you to our gym, where you will find state-of-the-art equipment,
                         expert trainers, and a variety of fitness classes to help you stay active and healthy. Whether
                         you are a seasoned athlete or new to fitness, we are here to help you succeed.
@@ -478,9 +482,9 @@
                     <img src="./assets/img/nature/nature2.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Pine Forest</h1>
-                    <p class="card2-p">15 km away</p>
-                    <p class="card2-p2">
+                    <h1 class="card2-h1" data-tr="explore-nature-card-Pine-Forest-title">Pine Forest</h1>
+                    <p class="card2-p" data-tr="explore-nature-card-Pine-Forest-position">15 km away</p>
+                    <p class="card2-p2" data-tr="explore-nature-card-Pine-Forest-desc">
                         Our cinema is equipped with state-of-the-art technology to provide you with the best possible
                         cinematic experience. From crystal-clear images to immersive sound, we take pride in delivering
                         a high-quality movie experience that will transport you to another world.
@@ -493,8 +497,8 @@
     </section>
     <section class="be-Pool">
         <div class="section-top">
-            <h1 class="section-h1">Pool</h1>
-            <p class="section-p">We hope you make a splash and have a great time with us.</p>
+            <h1 class="section-h1" data-tr="explore-nature-pool-title">Pool</h1>
+            <p class="section-p" data-tr="explore-nature-pool-para">We hope you make a splash and have a great time with us.</p>
         </div>
         <div class="cards-container">
             <div class="card2">
@@ -502,9 +506,9 @@
                     <img src="./assets/img/Pool/Pooll1.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Outdoor Pool</h1>
-                    <p class="card2-p">in front of the resort</p>
-                    <p class="card2-p2">
+                    <h1 class="card2-h1" data-tr="explore-pool-card-outdoor-title">Outdoor Pool</h1>
+                    <p class="card2-p" data-tr="explore-pool-card-outdoor-position">in front of the resort</p>
+                    <p class="card2-p2" data-tr="explore-pool-card-outdoor-desc">
                         In our outdoor pool, you can relax, soak up the sun, and enjoy the refreshing water. The pool
                         area is also surrounded by lush greenery and stunning views of the surrounding landscape, adding
                         to the serene and peaceful atmosphere. In addition to our outdoor pool, we also offer a range of
@@ -520,9 +524,9 @@
                     <img src="./assets/img/Pool/pool2.jpg" alt="">
                 </div>
                 <div class="card-text">
-                    <h1 class="card2-h1">Indoor Pool</h1>
-                    <p class="card2-p">at the first floor</p>
-                    <p class="card2-p2">
+                    <h1 class="card2-h1" data-tr="explore-pool-card-indoor-title">Indoor Pool</h1>
+                    <p class="card2-p" data-tr="explore-pool-card-indoor-position">at the first floor</p>
+                    <p class="card2-p2" data-tr="explore-pool-card-indoor-desc">
                         Our indoor pool area is spacious and features comfortable lounge chairs and towels for your
                         convenience. The pool itself is heated to a comfortable temperature, making it suitable for
                         swimming .
@@ -536,13 +540,13 @@
         </div>
     </section>
     <section class="be-RESORTEVENTS">
-        <h1 class="section-h1"><span>RESORT</span> EVENTS</h1>
-        <p class="section-p">Experience unforgettable moments with us </p>
+        <h1 class="section-h1" data-tr="expolre-resort-title"><span data-tr="expolre-resort-title-span">RESORT</span> EVENTS</h1>
+        <p class="section-p" data-tr="expolre-resort-para">Experience unforgettable moments with us </p>
     </section>
     <section class="be-Conferences">
         <div class="section-top">
-            <h1 class="section-h1">Conferences</h1>
-            <p class="section-p">
+            <h1 class="section-h1" data-tr="explore-conferences-title">Conferences</h1>
+            <p class="section-p" data-tr="explore-conferences-para">
                 Welcome to our conference, where industry leaders come together to share ideas and collaborate on
                 solutions.
             </p>
@@ -581,9 +585,9 @@
                     </div>
                 </div>
                 <div class="card-text">
-                    <h1 class="card3-h1">Infectious Disease Association I</h1>
-                    <p class="card3-p">July 17, 2023</p>
-                    <p class="card3-p2">
+                    <h1 class="card3-h1" data-tr="explore-conferences-card-disease-title">Infectious Disease Association I</h1>
+                    <p class="card3-p" data-tr="explore-conferences-card-disease-date">July 17, 2023</p>
+                    <p class="card3-p2" data-tr="explore-conferences-card-disease-desc">
                         reast cancer is a tough opponent, but you are tougher. You have the strength, resilience, and
                         determination to fight this disease and overcome it. Remember that you are not alone in this
                         fight.
@@ -622,38 +626,27 @@
             
                 
                         <div class="num1">
-                            <p><span class="cureentnum2"></span> of <span class=" all2"></span></p>
+                            <p style="direction: ltr;"><span class="cureentnum2"></span> of <span class=" all2"></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="card-text">
-                    <h1 class="card3-h1">Indoor Pool</h1>
-                    <p class="card3-p">at the first floor</p>
-                    <p class="card3-p2">
-                        Newly refurnished luxury accommodation with finest quality
-                        linen & quality decor. Air Conditioning Electric Blankets,
-                        Ironing Boards, Mini Bar, Flat Screen & Free In house Movies,
-                        WiFi and Housekeeping by request.
-                        Newly refurnished luxury accommodation with finest quality
-                        linen & quality decor. Air Conditioning Electric Blankets,
-                        Ironing Boards, Mini Bar, Flat Screen & Free In house Movies,
-                        WiFi and Housekeeping by request.
-                        Newly refurnished luxury accommodation with finest quality
-                        linen & quality decor. Air Conditioning Electric Blankets,
-                        Ironing Boards, Mini Bar, Flat Screen & Free In house Movies,
-                        WiFi and Housekeeping by request.
+                    <h1 class="card3-h1" data-tr="explore-conferences-card-cancer-title">Fight Cancer</h1>
+                    <p class="card3-p" data-tr="explore-conferences-card-cancer-date">July 17, 2023</p>
+                    <p class="card3-p2" data-tr="explore-conferences-card-cancer-desc">
+                        reast cancer is a tough opponent, but you are tougher. You have the strength, resilience, and determination to fight this disease and overcome it. Remember that you are not alone in this fight. You have a team of healthcare professionals, loved ones, and supporters who are standing with you every step of the way, and don't hesitate to ask your healthcare team any questions you may have. Together, we can fight breast cancer and come out stronger on the other side.
                     </p>
                 </div>
               
             </div>
-            <a class="btn-white" href="#">View More</a>
+            <a class="btn-white" href="#" data-tr="explore-conferences-card-cancer-more">View More</a>
         </div>
        
     </section>
     <section class="be-SportEvents">
         <div class="section-top">
-            <h1 class="section-h1">Sport Events</h1>
-            <p class="section-p">
+            <h1 class="section-h1" data-tr="explore-sports-title">Sport Events</h1>
+            <p class="section-p" data-tr="explore-sports-para">
                 Never stop your daily activity. 
             </p>
         </div>
@@ -686,14 +679,14 @@
             
                 
                         <div class="num1">
-                            <p><span class="cureentnum3"></span> of <span class=" all3"></span></p>
+                            <p style="direction: ltr;"><span class="cureentnum3"></span> of <span class=" all3"></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="card-text">
-                    <h1 class="card3-h1">Infectious Disease Association I</h1>
-                    <p class="card3-p">July 17, 2023</p>
-                    <p class="card3-p2">
+                    <h1 class="card3-h1" data-tr="explore-sports-card-title">Infectious Disease Association I</h1>
+                    <p class="card3-p" data-tr="explore-sports-card-date">July 17, 2023</p>
+                    <p class="card3-p2" data-tr="explore-sports-card-desc">
                         Newly refurnished luxury accommodation with finest quality
                         linen & quality decor. Air Conditioning Electric Blankets,
                         Ironing Boards, Mini Bar, Flat Screen & Free In house Movies,
@@ -720,29 +713,29 @@
             <div class="links">
                 <ul class="LinkList">
                     <li>
-                        <h3>INFORMATION</h3>
+                        <h3 data-tr="footer-information-title">INFORMATION</h3>
                     </li>
-                    <li><a href="./LearnMore.html">ABOUT US</a></li>
-                    <li><a href="./LearnMore.html">BLOG</a></li>
-                    <li><a href="./ContactUs.html">Contact Us</a></li>
+                    <li><a href="./LearnMore.html" data-tr="footer-information-about">ABOUT US</a></li>
+                    <li><a href="./LearnMore.html" data-tr="footer-information-blog">BLOG</a></li>
+                    <li><a href="./ContactUs.html" data-tr="footer-information-contact">Contact Us</a></li>
                 </ul>
                 <ul class="LinkList">
                     <li>
-                        <h3>LINKS TO HELP</h3>
+                        <h3 data-tr="footer-links-title">LINKS TO HELP</h3>
                     </li>
                     <li>
-                        <a href="#FACILITIES">FACILITIES</a>
+                        <a href="#FACILITIES" data-tr="footer-links-facilities">FACILITIES</a>
                     </li>
                     <li>
-                        <a href="./booking.html#RESIDENTIAL">RESIDENTIAL</a>
+                        <a href="./booking.html#RESIDENTIAL" data-tr="footer-links-residential">RESIDENTIAL</a>
                     </li>
                     <li>
-                        <a href="./gallery.html">Gallery</a>
+                        <a href="./gallery.html" data-tr="footer-links-gallery">Gallery</a>
                     </li>
                 </ul>
                 <ul class="LinkList">
                     <li>
-                        <h3>CONTACT</h3>
+                        <h3 data-tr="footer-contact-title">CONTACT</h3>
                     </li>
                     <li>
                         <p><img src="./assets/img/icion/phone.png" alt="phone icion"> 944 000 111</p>
@@ -750,11 +743,11 @@
                     <li>
                         <p>mountainbeeeze@gmail.com</p>
                     </li>
-                    <li class="lTalk-li "><a class="lTalk" href="./ContactUs.html">Let’s Talk</a></li>
+                    <li class="lTalk-li "><a class="lTalk" href="./ContactUs.html" data-tr="footer-contact-talk">Let’s Talk</a></li>
                 </ul>
                 <ul class="LinkList">
                     <li>
-                        <h3 class="keep">KEEP IN TOUCH</h3>
+                        <h3 class="keep" data-tr="footer-keep-in-touch-title">KEEP IN TOUCH</h3>
                     </li>
                     <li class="social2">
                         <a href="#">
@@ -775,18 +768,24 @@
 
             </div>
             <div class="Created">
-                <p>Created by :</p>
+                <p data-tr="footer-created-by">Created by :</p>
                 <img src="./assets/img/focalx.png" alt="focalX logo">
             </div>
             <div class="copyRight">
                 <img src="./assets/img/icion/copyright.png" alt="">
-                <p>2023. focalX. All Rights Reserved.</p>
+                <p data-tr="footer-cpy-rights">2023. focalX. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+    <script>
+        // let selectedLang = localStorage.getItem()
+        setTimeout(() => {
+            document.querySelector(`.${selectedLang}`).click();
+            console.log(document.querySelector(`.${selectedLang}`))
+        }, 10);
+    </script>
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/explore.js"></script>
+    <script src="./assets/js/translation.js"></script>
 </body>
-<script src="./assets/js/nav.js"></script>
-<script src="./assets/js/explore.js"></script>
-
-
 </html>
