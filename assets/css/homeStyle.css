@@ -984,7 +984,9 @@ body {
     }
 
     .be-OurResidential .cards-container .card1 {
-
+        transform: translateY(-70px);
+    }
+    .ar .be-OurResidential .cards-container .card1 {
         transform: translateY(-70px);
     }
 
@@ -1098,6 +1100,7 @@ body {
     .clips1 { 
         direction: ltr;  
         padding-bottom: 48px;
+        overflow: hidden;
 
     }
 
@@ -1235,7 +1238,7 @@ body {
 
     .be-OurResidential .sec-header .desc {
         font-size: 15px;
-        margin-right: 10%;
+     
     }
 
     .be-OurResidential .sec-header .btn-white {

@@ -157,7 +157,7 @@ scdot.forEach((i , k) => {
          console.log(k);
      
        
-           sliderInner.style.left = `-${k * 27}%`
+           sliderInner.style.left = `-${k * 70}px`
            sliderInner.children[k].focus();
         
             document.querySelector('.activedot').classList.remove('activedot');
