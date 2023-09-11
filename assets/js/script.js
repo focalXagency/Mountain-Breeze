@@ -16,12 +16,13 @@ inputGroups.forEach((inputGroup) => {
   });
 });
 
+// **** Logic for displaying modal and Hiding it ****
+
 bookBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     bookingFormContainer.style.display = "block";
     pageBody.classList.add("blur");
     body.style.overflow = "hidden"; // Hide vertical scrollbar
-
   });
 });
 
@@ -54,3 +55,82 @@ finalBtn.addEventListener("click", () => {
   pageBody.classList.remove("blur");
   body.style.overflow = "auto";
 });
+
+// **** End of the logic for displaying modal and hiding it ****
+
+// **** Logic for displaying rooms after fetching data from the backend ***
+const roomsContainer = document.querySelector(".rooms__types__container");
+
+axios
+  .get("https://mountain.lavetro-agency.com/api/dashboard/rooms")
+  .then((res) => {
+    const rooms = res.data.data;
+    displayAllRooms(rooms);
+    console.log(rooms[0]);
+  });
+
+const displayAllRooms = (rooms) => {
+  rooms.forEach((room) => {
+    roomsContainer.innerHTML += displayRoom(room);
+  });
+};
+
+const displayRoom = (room) => {
+  console.log(room.images[0].path)
+
+  return `<div class="room__type">
+  <img src="./assets/img/roomType.jpg" alt="" class="room__type__image" />
+  <div class="room__type__body">
+    <h3 class="room__type__heading">${room.name.en}</h3>
+    <div class="room__type__short__desc">
+      ${room.floor} floors suitable for families
+    </div>
+    <p class="room__type__desc">
+      ${room.content.en}
+    </p>
+    <div class="room__type__features">
+      <div class="room__type__feature">
+        <img src="./assets/img/person.svg" alt="" class="feature__icon" />
+        <div class="feature__desc">${room.guests_number} Persons</div>
+      </div>
+        ${
+          room.room_services &&
+          `
+          <div class="room__type__feature">
+            <img src="./assets/img/meal.svg" alt="" class="feature__icon" />
+            <div class="feature__desc">Room Services</div>
+          </div>
+        `
+        }
+        ${
+          room.bed &&
+          `
+      <div class="room__type__feature">
+      <img src="./assets/img/beds.svg" alt="" class="feature__icon" />
+
+        <div class="feature__desc">Kingsize Bed</div>
+      </div>
+      `
+        }
+     ${
+       room.TV &&
+       `<div class="room__type__feature">
+        <img src="./assets/img/TV.svg" alt="" class="feature__icon" />
+        <div class="feature__desc">TV</div>
+      </div>`
+     }
+    </div>
+    <div class="room__type__booking">
+      <button class="btn--submit btn--book" type="submit">
+        Book Now
+      </button>
+      <div class="room__type__price__period">
+        <span class="room__type__price">${room.price}</span>
+        <span class="room__type__period">Per Night</span>
+      </div>
+    </div>
+  </div>
+</div>`;
+};
+
+// **** End of the logic for displaying rooms ****
