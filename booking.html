@@ -27,62 +27,78 @@
     <div id="page">
       <div class="Navbar">
         <div class="nav-content">
-            <div class="menu1">
-                <div class="social">
-                    <a href="#"><img src="./assets/img/social/uil_facebook.png" alt="facebook" /></a>
-                    <a href="#"><img src="./assets/img/social/instagram.png" alt="instagram" /></a>
-                    <a href="#"><img src="./assets/img/social/uil_linkedin.png" alt="linkedin" /></a>
-                    <a href="#"><img src="./assets/img/social/youtube.png" alt="youtube" /></a>
-                </div>
-                <div class="link">
-                    <a href="./index.html" data-tr="home">Home</a>
-                    <a href="./Explore.html" data-tr="explore">Explore</a>
-                    <a href="./booking.html" data-tr="booking">Booking</a>
-                </div>
+          <div class="menu1">
+            <div class="social">
+              <a href="#"
+                ><img src="./assets/img/social/uil_facebook.png" alt="facebook"
+              /></a>
+              <a href="#"
+                ><img src="./assets/img/social/instagram.png" alt="instagram"
+              /></a>
+              <a href="#"
+                ><img src="./assets/img/social/uil_linkedin.png" alt="linkedin"
+              /></a>
+              <a href="#"
+                ><img src="./assets/img/social/youtube.png" alt="youtube"
+              /></a>
             </div>
-            <button class="menu-moblie">
-                <img src="./assets/img/icion/mobilebtn.png" alt="">
-            </button>
-            <div class="logo">
-                <img src="./assets/img/logo.png" alt="logo" />
+            <div class="link">
+              <a href="./index.html" data-tr="home">Home</a>
+              <a href="./Explore.html" data-tr="explore">Explore</a>
+              <a href="./booking.html" data-tr="booking">Booking</a>
             </div>
-            <div class="menu2">
-                <div class="lang">
-                    <p class="ar">AR</p>
-                    <span class="lang-line"></span>
-                    <p class="en">En</p>
-                </div>
-                <div class="link">
-                    <a href="#" class="active" data-tr="gallery">Gallery</a>
-                    <a href="./LearnMore.html" data-tr="blog">Blog</a>
-                    <a href="./ContactUs.html" data-tr="contact">Contact</a>
-                </div>
+          </div>
+          <button class="menu-moblie">
+            <img src="./assets/img/icion/mobilebtn.png" alt="" />
+          </button>
+          <div class="logo">
+            <img src="./assets/img/logo.png" alt="logo" />
+          </div>
+          <div class="menu2">
+            <div class="lang">
+              <p class="ar">AR</p>
+              <span class="lang-line"></span>
+              <p class="en">En</p>
             </div>
+            <div class="link">
+              <a href="#" class="active" data-tr="gallery">Gallery</a>
+              <a href="./LearnMore.html" data-tr="blog">Blog</a>
+              <a href="./ContactUs.html" data-tr="contact">Contact</a>
+            </div>
+          </div>
         </div>
         <div class="menu3">
-            <div class="link">
-                <a href="./index.html" data-tr="home">Home</a>
-                <a href="./Explore.html" data-tr="explore">Explore</a>
-                <a href="./booking.html" data-tr="booking">Booking</a>
-                <a href="#" data-tr="gallery">Gallery</a>
-                <a href="./LearnMore.html" data-tr="blog">Blog</a>
-                <a href="./ContactUs.html" data-tr="contact">Contact</a>
-            </div>
-            <p class="keep-3">Keep In Touch</p>
-            <div class="social">
-                <a href="#"><img src="./assets/img/social/uil_facebook.png" alt="facebook" /></a>
-                <a href="#"><img src="./assets/img/social/instagram.png" alt="instagram" /></a>
-                <a href="#"><img src="./assets/img/social/uil_linkedin.png" alt="linkedin" /></a>
-                <a href="#"><img src="./assets/img/social/youtube.png" alt="youtube" /></a>
-            </div>
+          <div class="link">
+            <a href="./index.html" data-tr="home">Home</a>
+            <a href="./Explore.html" data-tr="explore">Explore</a>
+            <a href="./booking.html" data-tr="booking">Booking</a>
+            <a href="#" data-tr="gallery">Gallery</a>
+            <a href="./LearnMore.html" data-tr="blog">Blog</a>
+            <a href="./ContactUs.html" data-tr="contact">Contact</a>
+          </div>
+          <p class="keep-3">Keep In Touch</p>
+          <div class="social">
+            <a href="#"
+              ><img src="./assets/img/social/uil_facebook.png" alt="facebook"
+            /></a>
+            <a href="#"
+              ><img src="./assets/img/social/instagram.png" alt="instagram"
+            /></a>
+            <a href="#"
+              ><img src="./assets/img/social/uil_linkedin.png" alt="linkedin"
+            /></a>
+            <a href="#"
+              ><img src="./assets/img/social/youtube.png" alt="youtube"
+            /></a>
+          </div>
         </div>
-    </div>
+      </div>
       <div class="hero">
         <h1 data-tr="booking-title">BOOKING</h1>
         <p data-tr="booking-para">Book for an Extraordinary Experiment!</p>
       </div>
       <div class="services">
-        <form class="rooms__suggestions">
+        <form class="rooms__suggestions" id="suggest-room">
           <div class="rooms__suggestions__header">
             <div>
               <div
@@ -112,14 +128,25 @@
             Or Search By
           </div>
           <div class="room__suggestions__selects">
-            <select class="room__suggestions__select">
-              <option value="" data-tr="booking-suggest-price">Price</option>
+            <select class="room__suggestions__select" id="room-option-price">
+              <option value="1000000" data-tr="booking-suggest-price">Price</option>
+              <option value="50">50</option>
+              <option value="90">90</option>
             </select>
-            <select class="room__suggestions__select">
-              <option value="" data-tr="booking-suggest-room-type">Room type</option>
+            <select class="room__suggestions__select" id="room-option-type">
+              <option value="" data-tr="booking-suggest-room-type">
+                Room type
+              </option>
+              <option value="VIP">VIP</option>
+              <option value="Normal">Nomral</option>
             </select>
-            <select class="room__suggestions__select">
+            <select class="room__suggestions__select" id="room-option-floor">
               <option value="" data-tr="booking-suggest-floor">Floor</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+
+              
             </select>
           </div>
 
@@ -140,9 +167,7 @@
           </p>
         </div>
         <div class="rooms__types">
-          <div class="rooms__types__container">
-            
-          </div>
+          <div class="rooms__types__container"></div>
           <button
             class="btn--outline btn--see--more"
             type="button"
@@ -240,7 +265,7 @@
                 <option value=""></option>
                 <option value="1">8/8/2023</option>
               </select> -->
-              <input type="date" id="booking-check-in">
+              <input type="date" id="booking-check-in" />
             </div>
             <div class="booking__input__group">
               <label
@@ -257,7 +282,7 @@
                 <option value=""></option>
                 <option value="1">9/9/2023</option>
               </select> -->
-              <input type="date" id="booking-check-out">
+              <input type="date" id="booking-check-out" />
             </div>
             <div class="booking__input__group">
               <label
@@ -274,7 +299,6 @@
                 <option value=""></option>
                 <option value="vip">vip</option>
                 <option value="normal">normal</option>
-
               </select>
             </div>
             <div class="booking__input__group">

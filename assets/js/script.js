@@ -177,3 +177,26 @@ bookingForm.addEventListener("submit", (event) => {
       console.error("Error sending data:", error);
     });
 });
+
+// **** Logic for filtering rooms ****
+const suggestRoom = document.querySelector("#suggest-room");
+console.log(suggestRoom);
+suggestRoom.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const price = suggestRoom.querySelector("#room-option-price").value;
+  const floor = suggestRoom.querySelector("#room-option-floor").value;
+  const type = suggestRoom.querySelector("#room-option-type").value;
+
+  axios
+    .get("https://mountain.lavetro-agency.com/api/dashboard/rooms", {
+      params: {
+        type: type,
+        guests_number:floor,
+        max_price: price,
+      },
+    })
+    .then((res) => console.log(res.data));
+
+  // console.log(price, floor, type);
+});
