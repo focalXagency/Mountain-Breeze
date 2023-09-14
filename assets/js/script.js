@@ -42,9 +42,6 @@ const getBtns = () => {
     body.style.overflow = "auto"; // Restore vertical scrollbar
   });
 
-  // const bookNowBtn = document.querySelector(".booking__footer #booking-btn");
-  // console.log(bookNowBtn);
-
   bookingForm.addEventListener("submit", (event) => {
     bookingFormContainer.style.display = "none";
     event.preventDefault();
@@ -60,14 +57,15 @@ const getBtns = () => {
 };
 // **** End of the logic for displaying modal and hiding it ****
 
-// **** Logic for displaying rooms after fetching data from the backend ***
+// **** Logic for displaying 3 rooms after fetching data from the backend ***
 const roomsContainer = document.querySelector(".rooms__types__container");
-
+let rooms = [];
 axios
   .get("https://mountain.lavetro-agency.com/api/dashboard/rooms")
   .then((res) => {
-    const rooms = res.data.data;
-    displayAllRooms(rooms);
+    console.log(res.data);
+    rooms = res.data.data;
+    displayAllRooms(rooms.slice(0, 3));
     console.log(rooms[0]);
 
     bookBtns = document.querySelectorAll(".btn--book");
@@ -83,10 +81,10 @@ const displayAllRooms = (rooms) => {
 };
 
 const displayRoom = (room) => {
-  console.log(room.images[0].path);
+  // console.log(room.images[0].path);
+  // <img src="${room.images[0].path}" alt="" class="room__type__image" />
 
   return `<div class="room__type">
-  <img src="${room.images[0].path}" alt="" class="room__type__image" />
   <div class="room__type__body">
     <h3 class="room__type__heading">${room.name.en}</h3>
     <div class="room__type__short__desc">
@@ -101,30 +99,33 @@ const displayRoom = (room) => {
         <div class="feature__desc">${room.guests_number} Persons</div>
       </div>
         ${
-          room.room_services &&
-          `
+          room.room_services
+            ? `
           <div class="room__type__feature">
             <img src="./assets/img/meal.svg" alt="" class="feature__icon" />
             <div class="feature__desc">Room Services</div>
           </div>
         `
+            : ""
         }
         ${
-          room.bed &&
-          `
+          room.bed
+            ? `
       <div class="room__type__feature">
       <img src="./assets/img/beds.svg" alt="" class="feature__icon" />
 
         <div class="feature__desc">Kingsize Bed</div>
       </div>
       `
+            : ""
         }
      ${
-       room.TV &&
-       `<div class="room__type__feature">
+       room.TV
+         ? `<div class="room__type__feature">
         <img src="./assets/img/TV.svg" alt="" class="feature__icon" />
         <div class="feature__desc">TV</div>
       </div>`
+         : ""
      }
     </div>
     <div class="room__type__booking">
@@ -132,7 +133,7 @@ const displayRoom = (room) => {
         Book Now
       </button>
       <div class="room__type__price__period">
-        <span class="room__type__price">${room.price}</span>
+        <span class="room__type__price">${room.price}$</span>
         <span class="room__type__period">Per Night</span>
       </div>
     </div>
@@ -140,7 +141,14 @@ const displayRoom = (room) => {
 </div>`;
 };
 
-// **** End of the logic for displaying rooms ****
+// **** End of the logic for displaying 3 rooms ****
+
+// **** Logic for displaying all rooms ***
+const displayAllBtn = document.querySelector("#see-all-rooms");
+displayAllBtn.addEventListener("click", () => {
+  displayAllRooms(rooms.slice(3));
+});
+// **** End of the Logic for displaying all rooms ***
 
 // **** Logic for Booking a room ****
 bookingForm.addEventListener("submit", (event) => {
@@ -192,11 +200,15 @@ suggestRoom.addEventListener("submit", (event) => {
     .get("https://mountain.lavetro-agency.com/api/dashboard/rooms", {
       params: {
         type: type,
-        guests_number:floor,
+        // guests_number: floor,
         max_price: price,
       },
     })
-    .then((res) => console.log(res.data));
+    .then((res) => {
+      roomsContainer.innerHTML = "";
+      rooms = res.data.data;
+      displayAllRooms(res.data.data)
+    } );
 
   // console.log(price, floor, type);
 });
