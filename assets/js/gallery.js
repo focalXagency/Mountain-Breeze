@@ -22,7 +22,7 @@ sections.forEach((section) => {
 
     const sectionName = section.dataset.section;
     changeSection(sectionName);
-    getImagesAndVideos(sectionName)
+    getImagesAndVideos(sectionName);
   });
 });
 
@@ -41,26 +41,85 @@ const changeSection = (section) => {
 };
 
 const changeSectionHeaderAndParagraph = (value, header, paragraph) => {
+  let selectedLanguage = document.querySelector(".lang .active").innerHTML;
+  console.log(selectedLanguage);
+
+  if (selectedLanguage == "AR") {
+    header.style.fontFamily = "'Tajawal', sans-serif";
+    paragraph.style.fontFamily = "'Tajawal', sans-serif";
+  }
+
   if (value === "Restaurant") {
-    header.innerText = "Our Restaurants";
-    paragraph.innerText = "Take a look on our restaurants";
+    header.setAttribute("data-tr", "resort-resturants-title");
+    paragraph.setAttribute("data-tr", "resort-resturants-para");
+    console.log(selectedLanguage);
+
+    if (selectedLanguage === "En") {
+      header.innerText = "Our Restaurants";
+      paragraph.innerText = "Take a look on our restaurants";
+    }
+    if (selectedLanguage === "AR") {
+      header.innerText = "مطاعمنا";
+      paragraph.innerText = "تمتع بأجواء هادئة وومتعة برفقة من تحب";
+    }
   }
   if (value === "Chalet") {
-    header.innerText = "Our Chalets";
-    paragraph.innerText =
-      "Welcome to our cozy chalet where comfort and relaxation await.";
+    header.setAttribute("data-tr", "resort-chalets-title");
+    paragraph.setAttribute("data-tr", "resort-chalets-para");
+    console.log(selectedLanguage);
+    if (selectedLanguage === "En") {
+      header.innerText = "Our Chalets";
+      paragraph.innerText =
+        "Welcome to our cozy chalet where comfort and relaxation await.";
+    }
+
+    if (selectedLanguage === "AR") {
+      header.innerText = "شاليهاتنا";
+      paragraph.innerText = "يسعدنا خدمتك ونأمل أن تحظى بتجربة طعام رائعة";
+    }
   }
   if (value === "Activity") {
-    header.innerText = "Our Activities";
-    paragraph.innerText = "Never stop your daily activity. ";
+    header.setAttribute("data-tr", "resort-activity-title");
+    paragraph.setAttribute("data-tr", "resort-activity-para");
+    if (selectedLanguage === "En") {
+      header.innerText = "Our Activities";
+      paragraph.innerText = "Never stop your daily activity.";
+    }
+
+    if (selectedLanguage === "AR") {
+      header.innerText = "النشاطات";
+      paragraph.innerText =
+        "استمتع ضمن أنشطة مسلية مع أصدقائك في منتجع نسمة جبل";
+    }
   }
   if (value === "Nature") {
-    header.innerText = "The Nature";
-    paragraph.innerText = "Nature is a source of wonder and inspiration.";
+    header.setAttribute("data-tr", "resort-nature-title");
+    paragraph.setAttribute("data-tr", "resort-nature-para");
+
+    if (selectedLanguage === "En") {
+      header.innerText = "The Nature";
+      paragraph.innerText = "Nature is a source of wonder and inspiration.";
+    }
+
+    if (selectedLanguage === "AR") {
+      header.innerText = "طبيعتنا";
+      paragraph.innerText =
+        "الطبيعة دائماَ تخطف الأنفاس لكنها تتميز بسحر إضافي في نسمة جبل";
+    }
   }
   if (value === "Events") {
-    header.innerText = "Our Events";
-    paragraph.innerText = "Experience unforgettable moments with us.";
+    header.setAttribute("data-tr", "resort-events-title");
+    paragraph.setAttribute("data-tr", "resort-events-para");
+
+    if (selectedLanguage === "En") {
+      header.innerText = "Our Events";
+      paragraph.innerText = "Experience unforgettable moments with us.";
+    }
+
+    if (selectedLanguage === "AR") {
+      header.innerText = "فعالياتنا";
+      paragraph.innerText = "عش اللحظات التي لا تنسى معنا";
+    }
   }
 };
 
@@ -92,9 +151,10 @@ sectionsContainer.addEventListener("mouseup", () => {
 
 const getImagesAndVideos = (sectionName) => {
   axios
-  .get("https://mountain.lavetro-agency.com/api/dashboard/galary", {params: {
-    type: sectionName
-  }})
-  .then((res) => console.log(res.data));
-
+    .get("https://mountain.lavetro-agency.com/api/dashboard/galary", {
+      params: {
+        type: sectionName,
+      },
+    })
+    .then((res) => console.log(res.data));
 };
