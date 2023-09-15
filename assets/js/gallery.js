@@ -1,4 +1,6 @@
 const servicesHeader = document.querySelector(".services__header");
+const photosAndvideosContainer = document.querySelector(".photos");
+console.log(photosAndvideosContainer);
 
 const sections = document.querySelectorAll(".section");
 const circles = document.querySelectorAll(".circle");
@@ -23,6 +25,7 @@ sections.forEach((section) => {
     const sectionName = section.dataset.section;
     changeSection(sectionName);
     getImagesAndVideos(sectionName);
+    // console.log(sectionName);
   });
 });
 
@@ -42,7 +45,7 @@ const changeSection = (section) => {
 
 const changeSectionHeaderAndParagraph = (value, header, paragraph) => {
   let selectedLanguage = document.querySelector(".lang .active").innerHTML;
-  console.log(selectedLanguage);
+  // console.log(selectedLanguage);
 
   if (selectedLanguage == "AR") {
     header.style.fontFamily = "'Tajawal', sans-serif";
@@ -52,7 +55,7 @@ const changeSectionHeaderAndParagraph = (value, header, paragraph) => {
   if (value === "Restaurant") {
     header.setAttribute("data-tr", "resort-resturants-title");
     paragraph.setAttribute("data-tr", "resort-resturants-para");
-    console.log(selectedLanguage);
+    // console.log(selectedLanguage);
 
     if (selectedLanguage === "En") {
       header.innerText = "Our Restaurants";
@@ -66,7 +69,7 @@ const changeSectionHeaderAndParagraph = (value, header, paragraph) => {
   if (value === "Chalet") {
     header.setAttribute("data-tr", "resort-chalets-title");
     paragraph.setAttribute("data-tr", "resort-chalets-para");
-    console.log(selectedLanguage);
+    // console.log(selectedLanguage);
     if (selectedLanguage === "En") {
       header.innerText = "Our Chalets";
       paragraph.innerText =
@@ -148,13 +151,52 @@ sectionsContainer.addEventListener("mouseup", () => {
 });
 
 // **** End of logic for scrolling ****
-
+let imagesAndVideos = [];
 const getImagesAndVideos = (sectionName) => {
+  photosAndvideosContainer.innerHTML = "";
   axios
     .get("https://mountain.lavetro-agency.com/api/dashboard/galary", {
       params: {
         type: sectionName,
       },
     })
-    .then((res) => console.log(res.data));
+    .then((res) => {
+      imagesAndVideos = [];
+      if (res.data.data[0]?.images) {
+        imagesAndVideos = [...imagesAndVideos, ...res.data.data[0].images];
+        // console.log(imagesAndVideos)
+      }
+    });
+
+  axios
+    .get("https://mountain.lavetro-agency.com/api/dashboard/videos", {
+      params: {
+        type: sectionName,
+      },
+    })
+    .then((res) => {
+      imagesAndVideos = [...imagesAndVideos, ...res.data.data];
+
+      imagesAndVideos.forEach((asset) => {
+        // console.log(asset);
+        if ("id" in asset) {
+          const vidoe = document.createElement("video");
+          vidoe.setAttribute("src", asset.link);
+          vidoe.classList.add("photo");
+          vidoe.classList.add("video");
+          console.log(vidoe);
+          photosAndvideosContainer.appendChild(vidoe);
+        } else {
+          const photo = document.createElement("img");
+          photo.setAttribute("src", asset.path);
+          photo.classList.add("photo");
+          console.log(photo);
+          photosAndvideosContainer.appendChild(photo);
+        }
+      });
+
+      // console.log(photosAndvideosContainer);
+      // console.log(imagesAndVideos);
+    });
 };
+getImagesAndVideos("Restaurant");

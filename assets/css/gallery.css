@@ -140,7 +140,7 @@
   height: 318px;
 }
 
-#video {
+.video {
   grid-column: 2/4;
 }
 
