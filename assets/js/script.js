@@ -12,8 +12,15 @@ const body = document.body;
 const inputGroups = document.querySelectorAll(".booking__input__group");
 // console.log(inputGroups);
 inputGroups.forEach((inputGroup) => {
+  const input = inputGroup.querySelector(".booking__input");
   inputGroup.addEventListener("focusin", () => {
-    inputGroup.classList.add("focus");
+    const type = input.getAttribute("type");
+    if (type !== "date") inputGroup.classList.add("focus");
+  });
+
+  inputGroup.addEventListener("focusout", () => {
+    console.log(input.value);
+    if (input.value === "") inputGroup.classList.remove("focus");
   });
 });
 
@@ -82,16 +89,21 @@ const displayAllRooms = (rooms) => {
 
 const displayRoom = (room) => {
   // console.log(room.images[0].path);
-  // <img src="${room.images[0].path}" alt="" class="room__type__image" />
-
+  let selectedLanguage = document.querySelector(".lang .active").innerHTML;
+  console.log(room)
   return `<div class="room__type">
+  ${
+    room.images[0]?.path
+      ? `<img src=${room.images[0].path} alt="" class="room__type__image"/>`
+      : ""
+  }
   <div class="room__type__body">
-    <h3 class="room__type__heading">${room.name.en}</h3>
+    <h3 class="room__type__heading">${selectedLanguage === "En" ? room.name.en : room.name.ar}</h3>
     <div class="room__type__short__desc">
       ${room.floor} floors suitable for families
     </div>
     <p class="room__type__desc">
-      ${room.content.en}
+      ${selectedLanguage === "En" ? room.content.en :room.content.ar}
     </p>
     <div class="room__type__features">
       <div class="room__type__feature">
@@ -207,8 +219,8 @@ suggestRoom.addEventListener("submit", (event) => {
     .then((res) => {
       roomsContainer.innerHTML = "";
       rooms = res.data.data;
-      displayAllRooms(res.data.data)
-    } );
+      displayAllRooms(res.data.data);
+    });
 
   // console.log(price, floor, type);
 });

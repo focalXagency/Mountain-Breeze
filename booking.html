@@ -130,13 +130,14 @@
             Or Search By
           </div>
           <div class="room__suggestions__selects">
-            <select class="room__suggestions__select" id="room-option-price">
-              <option value="1000000" data-tr="booking-suggest-price">
-                Price
-              </option>
-              <option value="50">50</option>
-              <option value="90">90</option>
-            </select>
+            <div class="booking__input__group" id="room-price">
+              <label for="room-option-price" data-tr="booking-suggest-price">Price</label>
+              <input
+                id="room-option-price"
+                type="text"
+                class="booking__input"
+              />
+            </div>
             <select class="room__suggestions__select" id="room-option-type">
               <option value="" data-tr="booking-suggest-room-type">
                 Room type
@@ -171,7 +172,7 @@
         <div class="rooms__types">
           <div class="rooms__types__container"></div>
           <button
-          id="see-all-rooms"
+            id="see-all-rooms"
             class="btn--outline btn--see--more"
             type="button"
             data-tr="booking-residential-more"
@@ -268,7 +269,7 @@
                 <option value=""></option>
                 <option value="1">8/8/2023</option>
               </select> -->
-              <input type="date" id="booking-check-in" />
+              <input type="date" id="booking-check-in" class="booking__input" />
             </div>
             <div class="booking__input__group">
               <label
@@ -285,7 +286,7 @@
                 <option value=""></option>
                 <option value="1">9/9/2023</option>
               </select> -->
-              <input type="date" id="booking-check-out" />
+              <input type="date" id="booking-check-out"  class="booking__input" />
             </div>
             <div class="booking__input__group">
               <label
