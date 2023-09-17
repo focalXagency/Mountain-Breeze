@@ -1,4 +1,6 @@
 let bookBtns = [];
+let selectedLanguage = localStorage.getItem("selected_language");
+// console.log(selectedLanguage)
 const bookingFormContainer = document.querySelector(".modal-container");
 // console.log(bookingFormContainer)
 const finishModal = document.querySelector(".finish__modal");
@@ -76,7 +78,7 @@ axios
     console.log(rooms[0]);
 
     bookBtns = document.querySelectorAll(".btn--book");
-    console.log(bookBtns);
+    // console.log(bookBtns);
 
     getBtns();
   });
@@ -89,8 +91,8 @@ const displayAllRooms = (rooms) => {
 
 const displayRoom = (room) => {
   // console.log(room.images[0].path);
-  let selectedLanguage = document.querySelector(".lang .active").innerHTML;
-  console.log(room)
+  // let selectedLanguage = document.querySelector(".lang .active").innerHTML;
+  // console.log(selectedLanguage);
   return `<div class="room__type">
   ${
     room.images[0]?.path
@@ -98,24 +100,28 @@ const displayRoom = (room) => {
       : ""
   }
   <div class="room__type__body">
-    <h3 class="room__type__heading">${selectedLanguage === "En" ? room.name.en : room.name.ar}</h3>
+    <h3 class="room__type__heading">${
+      selectedLanguage === "en" ? room.name.en : room.name.ar
+    }</h3>
     <div class="room__type__short__desc">
       ${room.floor} floors suitable for families
     </div>
     <p class="room__type__desc">
-      ${selectedLanguage === "En" ? room.content.en :room.content.ar}
+      ${selectedLanguage === "en" ? room.content.en : room.content.ar}
     </p>
     <div class="room__type__features">
       <div class="room__type__feature">
         <img src="./assets/img/person.svg" alt="" class="feature__icon" />
-        <div class="feature__desc">${room.guests_number} Persons</div>
+        <div class="feature__desc">${
+          room.guests_number
+        } <span data-tr="room-persons">Persons</div>
       </div>
         ${
           room.room_services
             ? `
           <div class="room__type__feature">
             <img src="./assets/img/meal.svg" alt="" class="feature__icon" />
-            <div class="feature__desc">Room Services</div>
+            <div class="feature__desc" data-tr="room-services">Room Services</div>
           </div>
         `
             : ""
@@ -126,7 +132,7 @@ const displayRoom = (room) => {
       <div class="room__type__feature">
       <img src="./assets/img/beds.svg" alt="" class="feature__icon" />
 
-        <div class="feature__desc">Kingsize Bed</div>
+        <div class="feature__desc" data-tr="room-kingsize-bed">Kingsize Bed</div>
       </div>
       `
             : ""
@@ -135,18 +141,18 @@ const displayRoom = (room) => {
        room.TV
          ? `<div class="room__type__feature">
         <img src="./assets/img/TV.svg" alt="" class="feature__icon" />
-        <div class="feature__desc">TV</div>
+        <div class="feature__desc" data-tr="room-tv">TV</div>
       </div>`
          : ""
      }
     </div>
     <div class="room__type__booking">
-      <button class="btn--submit btn--book" type="submit">
+      <button class="btn--submit btn--book" type="submit" data-tr="room-book-now">
         Book Now
       </button>
       <div class="room__type__price__period">
         <span class="room__type__price">${room.price}$</span>
-        <span class="room__type__period">Per Night</span>
+        <span class="room__type__period" data-tr="room-per-night">Per Night</span>
       </div>
     </div>
   </div>
@@ -162,6 +168,19 @@ displayAllBtn.addEventListener("click", () => {
 });
 // **** End of the Logic for displaying all rooms ***
 
+const arabicLanguage = document.querySelector(".ar");
+const englishLanguage = document.querySelector(".en");
+arabicLanguage.addEventListener("click", () => {
+  roomsContainer.innerHTML = ""
+  selectedLanguage = "Ar"
+  displayAllRooms(rooms.slice(0,3));
+});
+
+englishLanguage.addEventListener("click", () => {
+  roomsContainer.innerHTML = ""
+  selectedLanguage = "en";
+  displayAllRooms(rooms.slice(0,3));
+});
 // **** Logic for Booking a room ****
 bookingForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -224,3 +243,11 @@ suggestRoom.addEventListener("submit", (event) => {
 
   // console.log(price, floor, type);
 });
+
+// const arabicLanguage = document.querySelector(".lang").querySelector(".ar");
+
+// console.log(arabicLanguage);
+// arabicLanguage.addEventListener("click", () => {
+//   const documentBody = document.getElementsByTagName("body");
+//   console.log(documentBody);
+// });
