@@ -114,9 +114,7 @@ const displayRoom = (room) => {
     <div class="room__type__features">
       <div class="room__type__feature">
         <img src="./assets/img/person.svg" alt="" class="feature__icon" />
-        <div class="feature__desc">${
-          room.guests_number
-        } <span>${
+        <div class="feature__desc">${room.guests_number} <span>${
     selectedLanguage === "en" ? "Persons" : "أشخاص"
   }</div>
       </div>
@@ -157,7 +155,11 @@ const displayRoom = (room) => {
      }
     </div>
     <div class="room__type__booking">
-      <button class="btn--submit btn--book" type="submit">
+      <button class="btn--submit btn--book" type="submit" ${
+        selectedLanguage === "en"
+          ? ""
+          : "style='font-family: Tajawal, sans-serif;'"
+      }>
         ${selectedLanguage === "en" ? "Book Now" : "احجز الآن"}
       </button>
       <div class="room__type__price__period">
@@ -184,6 +186,10 @@ displayAllBtn.addEventListener("click", () => {
 const arabicLanguage = document.querySelector(".ar");
 const englishLanguage = document.querySelector(".en");
 arabicLanguage.addEventListener("click", () => {
+  const selects = document.querySelectorAll(".room__suggestions__select");
+  selects.forEach( (select) => {
+    select.style.fontFamily = "Tajawal, sans-serif"
+  })
   roomsContainer.innerHTML = "";
   selectedLanguage = "Ar";
   displayAllRooms(rooms.slice(0, 3));
