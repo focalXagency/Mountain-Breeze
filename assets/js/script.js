@@ -99,7 +99,9 @@ const displayRoom = (room) => {
       ? `<img src=${room.images[0].path} alt="" class="room__type__image"/>`
       : ""
   }
-  <div class="room__type__body">
+  <div class="room__type__body" ${
+    selectedLanguage === "en" ? "" : "style='font-family: Tajawal, sans-serif;'"
+  }>
     <h3 class="room__type__heading">${
       selectedLanguage === "en" ? room.name.en : room.name.ar
     }</h3>
@@ -114,14 +116,18 @@ const displayRoom = (room) => {
         <img src="./assets/img/person.svg" alt="" class="feature__icon" />
         <div class="feature__desc">${
           room.guests_number
-        } <span data-tr="room-persons">Persons</div>
+        } <span>${
+    selectedLanguage === "en" ? "Persons" : "أشخاص"
+  }</div>
       </div>
         ${
           room.room_services
             ? `
           <div class="room__type__feature">
             <img src="./assets/img/meal.svg" alt="" class="feature__icon" />
-            <div class="feature__desc" data-tr="room-services">Room Services</div>
+            <div class="feature__desc">${
+              selectedLanguage === "en" ? "Room Services" : "خدمة الغرف"
+            }</div>
           </div>
         `
             : ""
@@ -132,7 +138,9 @@ const displayRoom = (room) => {
       <div class="room__type__feature">
       <img src="./assets/img/beds.svg" alt="" class="feature__icon" />
 
-        <div class="feature__desc" data-tr="room-kingsize-bed">Kingsize Bed</div>
+        <div class="feature__desc">${
+          selectedLanguage === "en" ? "Kingsize Bed" : "أسرة ذو حجم كبيرة"
+        }</div>
       </div>
       `
             : ""
@@ -141,18 +149,23 @@ const displayRoom = (room) => {
        room.TV
          ? `<div class="room__type__feature">
         <img src="./assets/img/TV.svg" alt="" class="feature__icon" />
-        <div class="feature__desc" data-tr="room-tv">TV</div>
+        <div class="feature__desc">${
+          selectedLanguage === "en" ? "TV" : "تلفاز"
+        }</div>
       </div>`
          : ""
      }
     </div>
     <div class="room__type__booking">
-      <button class="btn--submit btn--book" type="submit" data-tr="room-book-now">
-        Book Now
+      <button class="btn--submit btn--book" type="submit">
+        ${selectedLanguage === "en" ? "Book Now" : "احجز الآن"}
       </button>
       <div class="room__type__price__period">
         <span class="room__type__price">${room.price}$</span>
-        <span class="room__type__period" data-tr="room-per-night">Per Night</span>
+        <span class="room__type__period">        ${
+          selectedLanguage === "en" ? "Per Night" : "لكل ليلة"
+        }
+        </span>
       </div>
     </div>
   </div>
@@ -171,15 +184,15 @@ displayAllBtn.addEventListener("click", () => {
 const arabicLanguage = document.querySelector(".ar");
 const englishLanguage = document.querySelector(".en");
 arabicLanguage.addEventListener("click", () => {
-  roomsContainer.innerHTML = ""
-  selectedLanguage = "Ar"
-  displayAllRooms(rooms.slice(0,3));
+  roomsContainer.innerHTML = "";
+  selectedLanguage = "Ar";
+  displayAllRooms(rooms.slice(0, 3));
 });
 
 englishLanguage.addEventListener("click", () => {
-  roomsContainer.innerHTML = ""
+  roomsContainer.innerHTML = "";
   selectedLanguage = "en";
-  displayAllRooms(rooms.slice(0,3));
+  displayAllRooms(rooms.slice(0, 3));
 });
 // **** Logic for Booking a room ****
 bookingForm.addEventListener("submit", (event) => {

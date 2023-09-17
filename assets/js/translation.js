@@ -182,12 +182,6 @@ let translations = {
         "footer-keep-in-touch-title"                    : "KEEP IN TOUCH",
         "footer-created-by"                             : "Created by :",
         "footer-cpy-rights"                             : "2023. focalX. All Rights Reserved.",
-        "room-persons"                                  : "Persons",
-        "room-services"                                 : "Room Services",
-        "room-kingsize-bed"                             : "Kingsize Bed",
-        "room-tv"                                       : "TV",
-        "room-book-now"                                 : "Book Now",
-        "room-per-night"                                : "Per Night",
     },
     ar : {
         "home"                                          : "الرئيسية",
@@ -372,12 +366,6 @@ let translations = {
         "footer-keep-in-touch-title"                    : "ابقى على تواصل معنا",
         "footer-created-by"                             : "انشئ بواسطة:",
         "footer-cpy-rights"                             : "جميع الحقوق محفوظة     2023.focal X",
-        "room-persons"                                  : "أشخاص",
-        "room-services"                                 : "خدمة الغرف ",
-        "room-kingsize-bed"                             : "أسرة ذو حجم كبير",
-        "room-tv"                                       : "تلفاز",
-        "room-book-now"                                 : "احجز الآن",
-        "room-per-night"                                : "لكل ليلة",
     },
 }
  // Get references to the AR and EN elements
