@@ -16,7 +16,7 @@ const inputGroups = document.querySelectorAll(".booking__input__group");
 inputGroups.forEach((inputGroup) => {
   const input = inputGroup.querySelector(".booking__input");
   inputGroup.addEventListener("focusin", () => {
-    const type = input.getAttribute("type");
+    const type = input?.getAttribute("type");
     if (type !== "date") inputGroup.classList.add("focus");
   });
 
@@ -62,6 +62,7 @@ const getBtns = () => {
     finishModal.style.display = "none";
     pageBody.classList.remove("blur");
     body.style.overflow = "auto";
+    bookingForm.reset();
   });
 };
 // **** End of the logic for displaying modal and hiding it ****
@@ -72,10 +73,10 @@ let rooms = [];
 axios
   .get("https://mountain.lavetro-agency.com/api/dashboard/rooms")
   .then((res) => {
-    console.log(res.data);
+    // console.log(res.data);
     rooms = res.data.data;
     displayAllRooms(rooms.slice(0, 3));
-    console.log(rooms[0]);
+    // console.log(rooms[0]);
 
     bookBtns = document.querySelectorAll(".btn--book");
     // console.log(bookBtns);
@@ -93,6 +94,7 @@ const displayRoom = (room) => {
   // console.log(room.images[0].path);
   // let selectedLanguage = document.querySelector(".lang .active").innerHTML;
   // console.log(selectedLanguage);
+  // console.log(room.id);
   return `<div class="room__type">
   ${
     room.images[0]?.path
@@ -103,10 +105,10 @@ const displayRoom = (room) => {
     selectedLanguage === "en" ? "" : "style='font-family: Tajawal, sans-serif;'"
   }>
     <h3 class="room__type__heading">${
-      selectedLanguage === "en" ? room.name.en : room.name.ar
+      selectedLanguage === "en" ? room.title.en : room.title.ar
     }</h3>
     <div class="room__type__short__desc">
-      ${room.floor} floors suitable for families
+    ${selectedLanguage === "en" ? room.sub_title.en : room.sub_title.ar}
     </div>
     <p class="room__type__desc">
       ${selectedLanguage === "en" ? room.content.en : room.content.ar}
@@ -179,7 +181,8 @@ const displayRoom = (room) => {
 // **** Logic for displaying all rooms ***
 const displayAllBtn = document.querySelector("#see-all-rooms");
 displayAllBtn.addEventListener("click", () => {
-  displayAllRooms(rooms.slice(3));
+  roomsContainer.innerHTML = "";
+  displayAllRooms(rooms);
 });
 // **** End of the Logic for displaying all rooms ***
 
@@ -187,9 +190,9 @@ const arabicLanguage = document.querySelector(".ar");
 const englishLanguage = document.querySelector(".en");
 arabicLanguage.addEventListener("click", () => {
   const selects = document.querySelectorAll(".room__suggestions__select");
-  selects.forEach( (select) => {
-    select.style.fontFamily = "Tajawal, sans-serif"
-  })
+  selects.forEach((select) => {
+    select.style.fontFamily = "Tajawal, sans-serif";
+  });
   roomsContainer.innerHTML = "";
   selectedLanguage = "Ar";
   displayAllRooms(rooms.slice(0, 3));
@@ -215,19 +218,18 @@ bookingForm.addEventListener("submit", (event) => {
   const desc = bookingForm.querySelector("#booking-desc").value;
 
   console.log(phone);
-  const data = {
-    full_name: name,
-    phone: phone,
-    email: email,
-    check_in_date: checkInDate,
-    check_out_date: checkOutDate,
-    room_type: roomType,
-    guests_number: guestsNumber,
-    content: desc,
-  };
 
   axios
-    .post("https://mountain.lavetro-agency.com/api/dashboard/books", data)
+    .post("https://mountain.lavetro-agency.com/api/dashboard/books", {
+      full_name: name,
+      phone: phone,
+      email: email,
+      check_in_date: checkInDate,
+      check_out_date: checkOutDate,
+      room_type: roomType,
+      guests_number: guestsNumber,
+      content: desc,
+    })
     .then((response) => {
       console.log("Data sent successfully:", response.data, response.status);
     })
@@ -236,37 +238,21 @@ bookingForm.addEventListener("submit", (event) => {
     });
 });
 
-// **** Logic for filtering rooms ****
 const suggestRoom = document.querySelector("#suggest-room");
-console.log(suggestRoom);
 suggestRoom.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const price = suggestRoom.querySelector("#room-option-price").value;
-  const floor = suggestRoom.querySelector("#room-option-floor").value;
+  const price = parseInt(suggestRoom.querySelector("#room-option-price").value);
+  const floor = parseInt(suggestRoom.querySelector("#room-option-floor").value);
   const type = suggestRoom.querySelector("#room-option-type").value;
+  // console.log(floor, tprice, type)
+  // console.log(typeof(type))
+  const newRoomsArray = rooms.filter((room) => {
+    if (room.price < price && room.floor === floor && room.type === type)
+      return room;
+  });
+  console.log(newRoomsArray);
+  roomsContainer.innerHTML = "";
 
-  axios
-    .get("https://mountain.lavetro-agency.com/api/dashboard/rooms", {
-      params: {
-        type: type,
-        // guests_number: floor,
-        max_price: price,
-      },
-    })
-    .then((res) => {
-      roomsContainer.innerHTML = "";
-      rooms = res.data.data;
-      displayAllRooms(res.data.data);
-    });
-
-  // console.log(price, floor, type);
+  displayAllRooms(newRoomsArray);
 });
-
-// const arabicLanguage = document.querySelector(".lang").querySelector(".ar");
-
-// console.log(arabicLanguage);
-// arabicLanguage.addEventListener("click", () => {
-//   const documentBody = document.getElementsByTagName("body");
-//   console.log(documentBody);
-// });
