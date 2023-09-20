@@ -142,6 +142,8 @@
 
 .video {
   grid-column: 2/4;
+  height: 318px;
+  border-radius: 8px;
 }
 
 .photo {
@@ -166,9 +168,9 @@
     grid-column: 1/3;
     height: 162px;
   }
-
-  #video {
+  .video {
     grid-column: 1/3;
+    height: 170px;
   }
 }
 /* End Gallery Styles */

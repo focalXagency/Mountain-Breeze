@@ -155,7 +155,7 @@ let imagesAndVideos = [];
 const getImagesAndVideos = (sectionName) => {
   photosAndvideosContainer.innerHTML = "";
   axios
-    .get("https://mountain.lavetro-agency.com/api/dashboard/galary", {
+    .get("https://mountain.lavetro-agency.com/api/dashboard/gallary", {
       params: {
         type: sectionName,
       },
@@ -180,17 +180,29 @@ const getImagesAndVideos = (sectionName) => {
       imagesAndVideos.forEach((asset) => {
         // console.log(asset);
         if ("id" in asset) {
-          const vidoe = document.createElement("video");
-          vidoe.setAttribute("src", asset.link);
-          vidoe.classList.add("photo");
-          vidoe.classList.add("video");
-          console.log(vidoe);
-          photosAndvideosContainer.appendChild(vidoe);
+          // console.log(asset.link)
+          const iframe = document.createElement("iframe");
+          const startSlicingAt = asset.link.indexOf("=");
+          const link =
+            "https://www.youtube.com/embed/" + asset.link.slice(startSlicingAt + 1);
+          console.log(link);
+          iframe.setAttribute("src", link);
+          iframe.classList.add("photo");
+          iframe.classList.add("video");
+          iframe.setAttribute("allowfullscreen", "");
+          iframe.setAttribute(
+            "allow",
+            "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          );
+          iframe.setAttribute("frameborder", "0");
+          console.log(iframe);
+
+          photosAndvideosContainer.appendChild(iframe);
         } else {
           const photo = document.createElement("img");
           photo.setAttribute("src", asset.path);
           photo.classList.add("photo");
-          console.log(photo);
+          // console.log(photo);
           photosAndvideosContainer.appendChild(photo);
         }
       });
@@ -200,3 +212,15 @@ const getImagesAndVideos = (sectionName) => {
     });
 };
 getImagesAndVideos("Restaurant");
+
+{
+  /* <iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/Tt0arZN6EBM?si=coEMhAl5c2FHMVaG"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen
+></iframe> */
+}
