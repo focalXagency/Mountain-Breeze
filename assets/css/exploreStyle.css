@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+
 * {
     padding: 0;
     margin: 0;
@@ -15,8 +16,9 @@ body {
     background-color: var(--color-background);
 }
 
-
-
+.arfont{
+    font-family: 'Tajawal', sans-serif !important;
+}
 
 
 /* hero style */
@@ -235,7 +237,7 @@ body {
     position: relative;
     display: none;
     direction:ltr;
-
+    transition: all 0.3s ease-in;
 }
 .be-RESORTFACILITIES .slider-item .slider-inner{
     position: absolute;
@@ -247,7 +249,7 @@ body {
     gap:25px;
     width: 200%;
     height: max-content;
-    transition: all 0.3s ease-in;
+    
 }
 
 .be-RESORTFACILITIES .slider-item .slider-inner button{
@@ -281,25 +283,26 @@ body {
 .be-RESORTFACILITIES .slider-item .slider-inner .section-item p {
     font-size: 10px;
 }
-.be-RESORTFACILITIES .slider-item .dots-sc{
-    display: flex;
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 5px;
+ .dots-sc{
+    display: none;
+   align-items: center;
+   width: 100%;
+ justify-content: center;
+    gap: 5px ;
+    padding: 0 4.832% ;
 }
 .activedot{
     background-color: rgba(0, 78, 107, 1)!important ;
 }
 
-.be-RESORTFACILITIES .slider-item .dot-sc{
+.dot-sc{
     width: 15px;
     height: 10px;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     background-color: #004E6B33;
+
 }
 
 .be-RESORTFACILITIES .section-h1 {
@@ -943,7 +946,11 @@ body {
     transform: translateY(-143px);
 }
 
-.be-Conferences .cards-container .btn-white {
+.be-Conferences .btn  {
+    padding: 0 4.832% 0;
+    transform: translateY(-105px);
+}
+.be-Conferences .btn .btn-white {
     font-size: 22.688px;
     font-style: normal;
     font-weight: 600;
@@ -954,8 +961,11 @@ body {
     color: var(--color--primary);
     border-color: var(--color--primary);
 }
+.be-Conferences .btn .less {
+  display: none;
+}
 
-.be-Conferences .cards-container .btn-white:hover {
+.be-Conferences .btn .btn-white:hover {
     background-color: var(--color--primary);
     color: var(--color-font);
     border-color: var(--color-font);
@@ -975,6 +985,8 @@ body {
     overflow: hidden;
     margin-bottom: 42px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all 0.3s ease;
+
 }
 .ar .cards-container .card3 {
     width: 100%;
@@ -1282,7 +1294,6 @@ body {
         margin-bottom: 33px;
         padding-left: 68px;
 
-
     }
     .ar .clips .clip:hover .content-clip {
         display: flex;
@@ -1292,8 +1303,8 @@ body {
         flex-direction: column;
         font-size: 50px;
         margin-bottom: 33px;
-        padding-left: 0px;
-        padding-right: 80px;
+        /* padding-left: 68px; */
+        padding-right: 120px;
     }
 
     .clips .clip:hover .content-clip p {
@@ -1346,6 +1357,11 @@ body {
     .be-RESORTFACILITIES .slider-item{
         display: block;
     
+    }
+
+    .dots-sc{
+        display: flex;
+   
     }
 
     .be-RESORTFACILITIES .section-h1 {
@@ -1998,7 +2014,13 @@ body {
         font-size: 10px;
     }
 
-
+    .be-Conferences .btn .btn-white {
+        font-size: 14.688px;
+        font-style: normal;
+        font-weight: 600;
+        padding: 3px 10px;
+      transform: translateY(59px);
+    }
     .be-Conferences .cards-container {
         padding: 0 4.832%;
         transform: translateY(-59px);
