@@ -1,6 +1,6 @@
 const servicesHeader = document.querySelector(".services__header");
 const photosAndvideosContainer = document.querySelector(".photos");
-console.log(photosAndvideosContainer);
+// console.log(photosAndvideosContainer);
 
 const sections = document.querySelectorAll(".section");
 const circles = document.querySelectorAll(".circle");
@@ -152,6 +152,9 @@ sectionsContainer.addEventListener("mouseup", () => {
 
 // **** End of logic for scrolling ****
 let imagesAndVideos = [];
+let images = [];
+let videos = [];
+let length;
 const getImagesAndVideos = (sectionName) => {
   photosAndvideosContainer.innerHTML = "";
   axios
@@ -161,9 +164,9 @@ const getImagesAndVideos = (sectionName) => {
       },
     })
     .then((res) => {
-      imagesAndVideos = [];
+      images = [];
       if (res.data.data[0]?.images) {
-        imagesAndVideos = [...imagesAndVideos, ...res.data.data[0].images];
+        images = [...images, ...res.data.data[0].images];
         // console.log(imagesAndVideos)
       }
     });
@@ -175,37 +178,24 @@ const getImagesAndVideos = (sectionName) => {
       },
     })
     .then((res) => {
-      imagesAndVideos = [...imagesAndVideos, ...res.data.data];
+      videos = [];
+      videos = [...videos, ...res.data.data];
 
-      imagesAndVideos.forEach((asset) => {
-        // console.log(asset);
-        if ("id" in asset) {
-          // console.log(asset.link)
-          const iframe = document.createElement("iframe");
-          const startSlicingAt = asset.link.indexOf("=");
-          const link =
-            "https://www.youtube.com/embed/" + asset.link.slice(startSlicingAt + 1);
-          console.log(link);
-          iframe.setAttribute("src", link);
-          iframe.classList.add("photo");
-          iframe.classList.add("video");
-          iframe.setAttribute("allowfullscreen", "");
-          iframe.setAttribute(
-            "allow",
-            "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          );
-          iframe.setAttribute("frameborder", "0");
-          console.log(iframe);
+      // console.log(videos);
+      if (videos.length > images.length) {
+        length = videos.length;
+        // console.log(length)
+      } else length = images.length;
+      let i = 0;
 
-          photosAndvideosContainer.appendChild(iframe);
-        } else {
-          const photo = document.createElement("img");
-          photo.setAttribute("src", asset.path);
-          photo.classList.add("photo");
-          // console.log(photo);
-          photosAndvideosContainer.appendChild(photo);
-        }
-      });
+      // console.log(length)
+      imagesAndVideos = [];
+      for (i; i < length; i++) {
+        if (videos[i]) imagesAndVideos.push(videos[i]);
+        if (images[i]) imagesAndVideos.push(images[i]);
+      }
+      // console.log(imagesAndVideos)
+      renderGallery(imagesAndVideos.slice(0, 5));
 
       // console.log(photosAndvideosContainer);
       // console.log(imagesAndVideos);
@@ -213,14 +203,41 @@ const getImagesAndVideos = (sectionName) => {
 };
 getImagesAndVideos("Restaurant");
 
-{
-  /* <iframe
-width="560"
-height="315"
-src="https://www.youtube.com/embed/Tt0arZN6EBM?si=coEMhAl5c2FHMVaG"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen
-></iframe> */
-}
+const seeMoreBtn = document.querySelector("#btn-more");
+// console.log(seeMoreBtn)
+seeMoreBtn.addEventListener("click", () => {
+  photosAndvideosContainer.innerHTML = "";
+  renderGallery(imagesAndVideos);
+});
+const renderGallery = (galleryItems) => {
+  galleryItems.forEach((asset) => {
+    console.log(asset);
+    // console.log(asset);
+    if ("link" in asset) {
+      // console.log(asset.link)
+      const iframe = document.createElement("iframe");
+      const startSlicingAt = asset.link.indexOf("=");
+      const link =
+        "https://www.youtube.com/embed/" + asset.link.slice(startSlicingAt + 1);
+      // console.log(link);
+      iframe.setAttribute("src", link);
+      iframe.classList.add("photo");
+      iframe.classList.add("video");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute(
+        "allow",
+        "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      );
+      iframe.setAttribute("frameborder", "0");
+      // console.log(iframe);
+
+      photosAndvideosContainer.appendChild(iframe);
+    } else {
+      const photo = document.createElement("img");
+      photo.setAttribute("src", asset.path);
+      photo.classList.add("photo");
+      // console.log(photo);
+      photosAndvideosContainer.appendChild(photo);
+    }
+  });
+};
