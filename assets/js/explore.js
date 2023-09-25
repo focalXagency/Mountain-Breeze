@@ -1,6 +1,6 @@
 
 
-events()
+
 
 
 
@@ -96,7 +96,7 @@ function showSlides() {
      }
     // current=slidnum;
    setActive();
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 
 
@@ -217,33 +217,37 @@ if (width <=800) {
 // 
 
   let restaurant;
-
+ 
   async function restaurant1() {
     const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Restaurant");
     const data = await response.json();
-    restaurant = data.data; 
+    restaurant = data.data;
+    restaurant11( restaurant)
+} 
+async function restaurant11( restaurant) {
     let card = ""
     let en = document.querySelector(".en")
      
       restaurant.forEach((element, i) => {
   
           card += `
-        <div class="card2">
+          ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
           <div class="img-card">
               <img src=${element.article_cover} alt="">
           </div>
          <div class="card-text">
-          ${en.classList.contains("active")== true ? ` <h1 class="card2-h1" >` : ` <h1 class="card2-h1 arfont" >`}
-              ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
+             <h1 class="card2-h1" >
+              ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
               </h1>
-              ${en.classList.contains("active")== true ? `<p class="card2-p" >` :`<p class="card2-p arfont" >`}
-              ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
+          <p class="card2-p" >
+              ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar}
               </p>
-              ${en.classList.contains("active")== true ? `<p class="card2-p2" >` :`<p class="card2-p2 arfont" >`}
-              ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
-              </p>
+            <div class="card2-p2" >
+              ${en.classList.contains("active") == true ? element.description.en : element.description.ar}
+              </div>
           </div>
       </div>
+       
         `
         
     
@@ -257,7 +261,13 @@ if (width <=800) {
   
    
       document.querySelector(".container1").innerHTML = card
-     
+      document.querySelector(".ar").addEventListener('click', () => {
+        restaurant11(restaurant)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        restaurant11(restaurant)
+      })
       
       
       }
@@ -271,7 +281,11 @@ if (width <=800) {
   async function Chalet1() {
     const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Chalet");
     const data = await response.json();
-    Chalet = data.data; 
+    Chalet = data.data;
+    Chalet11(Chalet) 
+  }
+  
+  async function Chalet11(Chalet) {
     let card = ""
 
     let en = document.querySelector(".en")
@@ -279,20 +293,20 @@ if (width <=800) {
     Chalet.forEach((element, i) => {
 
         card += `
-        <div class="card1">
+        ${en.classList.contains("active")== true ?` <div class="card1">` : ` <div class="card1 arfont">`}
         <div class="img-card">
             <img src=${element.article_cover} alt="">
         </div>
         <div class="card-text">
-        ${en.classList.contains("active")== true ? ` <h1 class="card1-h1" >` : ` <h1 class="card1-h1 arfont" >`}
+              <h1 class="card1-h1" >
               ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
               </h1>
-              ${en.classList.contains("active")== true ? `<p class="card1-p" >` :`<p class="card1-p arfont" >`}
+              <p class="card1-p" 
             ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
-             </p>
-             ${en.classList.contains("active")== true ? `<p class="card1-p2" >` :`<p class="card1-p2 arfont" >`}
+              </p>
+              <div class="card1-p2" >
             ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
-            </p>
+              </div>
        
             <div class="book">
                 <a href="./booking.html" class="btn--submit">Book Now</a>
@@ -304,7 +318,13 @@ if (width <=800) {
   
     })
       document.querySelector(".container2").innerHTML = card
-      
+      document.querySelector(".ar").addEventListener('click', () => {
+        Chalet11(Chalet)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        Chalet11(Chalet)
+      })
       }
     
       Chalet1()
@@ -316,6 +336,9 @@ if (width <=800) {
         const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Activity");
         const data = await response.json();
         Activity = data.data; 
+        Activity11(Activity)
+      }
+      async function Activity11(Activity) {
         let card = ""
        
     let en = document.querySelector(".en")
@@ -324,20 +347,20 @@ if (width <=800) {
 
     
         card += `
-        <div class="card2">
+        ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
         <div class="img-card">
             <img src=${element.article_cover} alt="">
         </div>
        <div class="card-text">
-        ${en.classList.contains("active")== true ? ` <h1 class="card2-h1" >` : ` <h1 class="card2-h1 arfont" >`}
+            <h1 class="card2-h1" >
             ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
             </h1>
-            ${en.classList.contains("active")== true ? `<p class="card2-p" >` :`<p class="card2-p arfont" >`}
+            <p class="card2-p" >
             ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
             </p>
-            ${en.classList.contains("active")== true ? `<p class="card2-p2" >` :`<p class="card2-p2 arfont" >`}
+            <div class="card2-p2" >
             ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
-            </p>
+            </div>
         </div>
     </div>
       `
@@ -349,7 +372,13 @@ if (width <=800) {
        
           document.querySelector(".container3").innerHTML = card
          
-          
+          document.querySelector(".ar").addEventListener('click', () => {
+            Activity11(Activity)
+          })
+        
+          document.querySelector(".en").addEventListener('click', () => {
+            Activity11(Activity)
+          })
           
           }
       
@@ -362,6 +391,9 @@ async function Nature1() {
   const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Nature");
   const data = await response.json();
   Nature = data.data; 
+  Nature11(Nature)
+}
+async function Nature11(Nature) {
   let card = ""
   let en = document.querySelector(".en")
      
@@ -369,21 +401,21 @@ async function Nature1() {
 
  
     card += `
-    <div class="card2">
-    <div class="img-card">
+    ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
+        <div class="img-card">
         <img src=${element.article_cover} alt="">
-    </div>
-   <div class="card-text">
-    ${en.classList.contains("active")== true ? ` <h1 class="card2-h1" >` : ` <h1 class="card2-h1 arfont" >`}
-        ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
-        </h1>
-        ${en.classList.contains("active")== true ? `<p class="card2-p" >` :`<p class="card2-p arfont" >`}
-        ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
-        </p>
-        ${en.classList.contains("active")== true ? `<p class="card2-p2" >` :`<p class="card2-p2 arfont" >`}
-        ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
-        </p>
-    </div>
+        </div>
+     <div class="card-text">
+         <h1 class="card2-h1" >
+         ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
+         </h1>
+         <p class="card2-p" >
+         ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
+         </p>
+         <div class="card2-p2" >
+         ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
+         </div>
+     </div>
 </div>
   `
     
@@ -393,8 +425,13 @@ async function Nature1() {
 
  
     document.querySelector(".container4").innerHTML = card
-   
+    document.querySelector(".ar").addEventListener('click', () => {
+        Nature11(Nature)
+      })
     
+      document.querySelector(".en").addEventListener('click', () => {
+        Nature11(Nature)
+      })
     
     }
 
@@ -406,6 +443,9 @@ async function Pool1() {
   const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Pool");
   const data = await response.json();
   Pool = data.data; 
+  Pool11(Pool)
+}
+async function Pool11(Pool) {
   let card = ""
 
    let en = document.querySelector(".en")
@@ -414,20 +454,20 @@ async function Pool1() {
 
     
     card += `
-    <div class="card2">
+    ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
           <div class="img-card">
               <img src=${element.article_cover} alt="">
           </div>
          <div class="card-text">
-          ${en.classList.contains("active")== true ? ` <h1 class="card2-h1" >` : ` <h1 class="card2-h1 arfont" >`}
+              <h1 class="card2-h1" >
               ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
               </h1>
-              ${en.classList.contains("active")== true ? `<p class="card2-p" >` :`<p class="card2-p arfont" >`}
+              <p class="card2-p" >
               ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
               </p>
-              ${en.classList.contains("active")== true ? `<p class="card2-p2" >` :`<p class="card2-p2 arfont" >`}
+              <div class="card2-p2" >
               ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
-              </p>
+              </div>
           </div>
       </div>
   `
@@ -437,6 +477,14 @@ async function Pool1() {
  
     document.querySelector(".container5").innerHTML = card
    
+    document.querySelector(".ar").addEventListener('click', () => {
+        Pool11(Pool)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        Pool11(Pool)
+      })
+    
     
     
     }
@@ -450,7 +498,10 @@ async function Pool1() {
   async function events() {
     const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Events");
     const data = await response.json();
-    events1 = data.data; 
+    events1 = data.data;
+    events11(events1)
+  }
+  async function events11(events1){
     let card = ""
     let card1=""
     let en = document.querySelector(".en")
@@ -464,7 +515,7 @@ async function Pool1() {
     
   
           card += `    
-          <div class="card3">
+          ${en.classList.contains("active")== true ?` <div class="card3">` : ` <div class="card3 arfont">`}
               <div class="img-card">
                   <div class="slider slider2" id="2">
                       <button class="prev-btn pbtn2">
@@ -490,22 +541,22 @@ async function Pool1() {
                   </div>
               </div>
               <div class="card-text">
-              ${en.classList.contains("active")== true ? ` <h1 class="card3-h1" >` : ` <h1 class="card3-h1 arfont" >`}
+                    <h1 class="card3-h1" >
                     ${en.classList.contains("active")== true ? e.title.en : e.title.ar }
                     </h1>
-                    ${en.classList.contains("active")== true ? `<p class="card3-p" >` :`<p class="card3-p arfont" >`}
+                    <p class="card3-p" >
                   ${en.classList.contains("active")== true ? e.sub_title.en : e.sub_title.ar}
-                  </p>
-                  ${en.classList.contains("active")== true ? `<p class="card3-p2" >` :`<p class="card3-p2 arfont" >`}
+                    </p>
+                  <div class="card3-p2" >
                   ${en.classList.contains("active")== true ? e.description.en : e.description.ar}
-                  </p>
+                  </div>
               </div>
             
           </div>
 
         `
      :    card1 += `    
-        <div class="card3">
+     ${en.classList.contains("active")== true ?` <div class="card3">` : ` <div class="card3 arfont">`}
               <div class="img-card">
                   <div class="slider slider2" id="2">
                       <button class="prev-btn pbtn2">
@@ -531,15 +582,15 @@ async function Pool1() {
                   </div>
               </div>
               <div class="card-text">
-              ${en.classList.contains("active")== true ? ` <h1 class="card3-h1" >` : ` <h1 class="card3-h1 arfont" >`}
+                    <h1 class="card3-h1" >
                     ${en.classList.contains("active")== true ? e.title.en : e.title.ar }
                     </h1>
-                    ${en.classList.contains("active")== true ? `<p class="card3-p" >` :`<p class="card3-p arfont" >`}
+                  <p class="card3-p" >
                   ${en.classList.contains("active")== true ? e.sub_title.en : e.sub_title.ar}
                   </p>
-                  ${en.classList.contains("active")== true ? `<p class="card3-p2" >` :`<p class="card3-p2 arfont" >`}
+                  <div class="card3-p2" >
                   ${en.classList.contains("active")== true ? e.description.en : e.description.ar}
-                  </p>
+                  </div>
               </div>
             
           </div>
@@ -550,12 +601,18 @@ async function Pool1() {
 
 
  
-    
+document.querySelector(".ar").addEventListener('click', () => {
+    events11(events1)
+  })
+
+  document.querySelector(".en").addEventListener('click', () => {
+    events11(events1)
+  })
    
        // display none for all card expet fisrt tow 
             document.querySelector(".container6").innerHTML = card
             document.querySelector(".container7").innerHTML = card1
-       
+  
       let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
            for (let index = 0; index < cards.length; index++) {
             const element = cards[index];
@@ -569,7 +626,7 @@ async function Pool1() {
 
            //slider card img
            let allcard = document.querySelectorAll(".card3")
-           console.log(allcard[1]);
+       
 
            for (let i = 0; i < allcard.length; i++) {
               
@@ -665,37 +722,14 @@ async function Pool1() {
       
       }
     
+      events()
 
-
-      //translte 
-
-document.querySelector(".ar").addEventListener('click', ()=>{
- 
-    events()
-    Pool1()
-    Nature1()
-    Activity1()
-    Chalet1()
-    restaurant1()
-
-})
     
 
-document.querySelector(".en").addEventListener('click', ()=>{
 
-   events()
-   Pool1()
-   Nature1()
-   Activity1()
-   Chalet1()
-   restaurant1()
-
-})
-    
 
 //view more event && less event
       
-   console.log(document.querySelector(".view"));  
 document.querySelector(".view").addEventListener('click', ()=>{
     let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
     for (let index = 0; index < cards.length; index++) {

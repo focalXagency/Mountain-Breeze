@@ -31,32 +31,35 @@ if (width <= 800) {
 
 // get room data && show last 2 or 3
 let room;
-
 async function rooms1() {
   const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/rooms");
   const data = await response.json();
-  room = data.data; 
+  room = data.data;
+  rooms11(room)
+}
+async function rooms11(room) {
+
   let card = ""
-  let card1=""
-  let en =document.querySelector(".en")
-    let n = 2
-    room.slice(-n).forEach((element, i) => {
-     
-        card += `
+  let card1 = ""
+  let en = document.querySelector(".en")
+  let n = 2
+  room.slice(-n).forEach((element, i) => {
+
+    card += `
         <div class="card1">
         <div class="img-card">
-            <img src=${ element.images[0]?.path} alt="">
+            <img src=${element.images[0]?.path} alt="">
         </div>
         <div class="card-text">
-        ${en.classList.contains("active")== true ? ` <h1 class="card1-h1" >` : ` <h1 class="card-h1 arfont" >`}
-            ${en.classList.contains("active")== true ? element.title.en:element.title.ar}
+        ${en.classList.contains("active") == true ? ` <h1 class="card1-h1" >` : ` <h1 class="card1-h1 arfont" >`}
+            ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
             </h1>
-            ${en.classList.contains("active")== true ? `<p class="card1-p" >` :`<p class="card1-p arfont" >`}
-            ${element.floor} ${en.classList.contains("active")== true ?"floors": "الطوابق"}
-             ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar }
+            ${en.classList.contains("active") == true ? `<p class="card1-p" >` : `<p class="card1-p arfont" >`}
+            ${element.floor} ${en.classList.contains("active") == true ? "floors" : "الطوابق"}
+             ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar}
              </p>
-             ${en.classList.contains("active")== true ? `<p class="card1-p2" >` :`<p class="card1-p2 arfont" >`}
-            ${en.classList.contains("active")== true ? element.content.en : element.content.ar }
+             ${en.classList.contains("active") == true ? `<p class="card1-p2" >` : `<p class="card1-p2 arfont" >`}
+            ${en.classList.contains("active") == true ? element.content.en : element.content.ar}
             </p>
             <div class="Advantages">
             ${element.guests_number > 0 == true ? `<div class="Advantage">
@@ -83,26 +86,26 @@ async function rooms1() {
         </div>
     </div>
       `
-      
-  
-    })
 
-    //for card room top page
-    n = 3
-      room.slice(-n).forEach((element, i) => {
-  
-          card1 += `<div class="card">
+
+  })
+
+  //for card room top page
+  n = 3
+  room.slice(-n).forEach((element, i) => {
+
+    card1 += `<div class="card">
           <div class="card-img">
               <img src=${element.images[0]?.path} alt="Room Img">
           </div>
           <div class="content">
-          ${en.classList.contains("active")== true ? ` <h2 class="card-h2" >` : ` <h2 class="card-h2 arfont" >`}
-              ${en.classList.contains("active")== true ? element.title.en:element.title.ar}
+              ${en.classList.contains("active") == true ? ` <h2 class="card-h2" >` : ` <h2 class="card-h2 arfont" >`}
+              ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
               </h2>
-              ${en.classList.contains("active")== true ? `<p class="card-p" >` :`<p class="card-p arfont" >`}
-              ${element.floor} ${en.classList.contains("active")== true ?"floors": "الطوابق"}
-              ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar 
-            }</p>
+              ${en.classList.contains("active") == true ? `<p class="card-p" >` : `<p class="card-p arfont" >`}
+              ${element.floor} ${en.classList.contains("active") == true ? "floors" : "الطوابق"}
+              ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar
+      }</p>
               <div class="card-bottom">
                   <a class="btn--submit " href="./booking.html">Book Now</a>
                   <div class="priceber">
@@ -113,122 +116,119 @@ async function rooms1() {
           </div>
       </div> 
         `
-        
-    
-      })
-  
-  
-  
-    
 
- 
-    document.querySelector(".container1").innerHTML = card
-    document.querySelector(".be-roomCard").innerHTML = card1
-    
-    
-    }
+
+  })
+
+
+
+
+
+
+  document.querySelector(".container1").innerHTML = card
+  document.querySelector(".be-roomCard").innerHTML = card1
+
+
+
+  document.querySelector(".ar").addEventListener('click', () => {
+
+
+    rooms11(room)
+
+  })
+
+
+  document.querySelector(".en").addEventListener('click', () => {
+    rooms11(room)
+  })
+
+
+}
 
 rooms1();
 
 //get video and show it
 let video;
-    async function vedio() {
-      const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/videos");
-      const data = await response.json();
-      
-      video = data.data; 
-    
-     console.log(video);
+async function vedio() {
+  const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/videos");
+  const data = await response.json();
+  video = data.data;
+  const iframe = document.createElement("iframe")
+  const start = video[0].link.indexOf("=")
+  iframe.setAttribute("width", "560")
+  iframe.setAttribute("height", "315")
+  const link = "https://www.youtube.com/embed/" + video[0].link.slice(start + 1);
+  iframe.setAttribute("src", link);
+  iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share ")
+  iframe.setAttribute("allowfullscreen", "")
+  iframe.setAttribute("frameborder", "0")
+  document.querySelector(".video").appendChild(iframe)
 
-      const iframe= document.createElement("iframe")
-      
-      const start=video[0].link.indexOf("=")
-      iframe.setAttribute("width", "560")
-      iframe.setAttribute("height", "315")
-      const link = "https://www.youtube.com/embed/" + video[0].link.slice(start + 1); 
-      iframe.setAttribute("src" , link);
-      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share "  )
-      iframe.setAttribute("allowfullscreen", "")
-      iframe.setAttribute("frameborder", "0")
-    document.querySelector(".video").appendChild(iframe)
-  
-     
-        
-        }
-        vedio();
+
+
+}
+vedio();
 
 
 // get resturant data and show it
-        let restaurant;
+let restaurant;
 
-async function restaurant1() {
+
+async function restaurantt() {
   const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Restaurant");
-  const data = await response.json();
-  restaurant = data.data; 
+  const data = await response.json()
+  restaurant = (data.data)
+
+  restaurant1(restaurant)
+}
+
+async function restaurant1(restaurant) {
   let card = ""
-  let en =document.querySelector(".en")
+  let en = document.querySelector(".en")
 
 
-    let n = 2
-    restaurant.slice(-n).forEach((element, i) => {
+  let n = 2
+  restaurant.slice(-n).forEach((element, i) => {
 
-         card += `
-         <div class="card2">
-         <div class="img-card">
-             <img src=${element.article_cover} alt="">
-         </div>
-        <div class="card-text">
-         ${en.classList.contains("active")== true ? ` <h1 class="card2-h1" >` : ` <h1 class="card2-h1 arfont" >`}
-             ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
-             </h1>
-             ${en.classList.contains("active")== true ? `<p class="card2-p" >` :`<p class="card2-p arfont" >`}
-             ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
-             </p>
-             ${en.classList.contains("active")== true ? `<p class="card2-p2" >` :`<p class="card2-p2 arfont" >`}
-             ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
-             </p>
-         </div>
-     </div>
-      `
-  
-    })
-
-
-   
-  
-  
-  
-   
-    
-
+    card += `
+    ${en.classList.contains("active") == true ? ` <div class="card2">` : ` <div class="card2 arfont">`}
+    <div class="img-card">
+        <img src=${element.article_cover} alt="">
+    </div>
+   <div class="card-text">
+        <h1 class="card2-h1" >
+        ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
+        </h1>
+    <p class="card2-p" >
+        ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar}
+        </p>
+        <div class="card2-p2" >
+        ${en.classList.contains("active") == true ? element.description.en : element.description.ar}
+        </div>
+    </div>
+</div>
  
-    document.querySelector(".container2").innerHTML = card
-   
-    
-    
-    }
+  `
 
-    restaurant1();
+  })
+
+  document.querySelector(".container2").innerHTML = card
+
+  //ar or en
+
+  document.querySelector(".ar").addEventListener('click', () => {
+    restaurant1(restaurant)
+  })
+
+  document.querySelector(".en").addEventListener('click', () => {
+    restaurant1(restaurant)
+  })
+}
+
+
+restaurantt()
 
 
 
 
 
-
-document.querySelector(".ar").addEventListener('click', ()=>{
- 
-     restaurant1()
- 
-    rooms1()
-
- })
-     
- 
- document.querySelector(".en").addEventListener('click', ()=>{
- 
-     restaurant1()
- 
-    rooms1()
- 
- })
-     

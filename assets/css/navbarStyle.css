@@ -125,12 +125,12 @@
 
 .Navbar .menu2 .lang .lang-line {
     content: "";
-    border-left: 3px solid white;
-    height: 20px;
+    border-left: 2px solid white;
+    height: 13px;
 
 }
 .Navbar .menu2 .lang:hover .lang-line {
-    border-left: 3px solid #fff;
+    border-left: 2px solid #fff;
 }
 
 .Navbar .menu2 .lang p:hover {
