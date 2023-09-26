@@ -1902,6 +1902,9 @@ body {
         background: rgba(0, 78, 107, 0.90);
         position: relative;
     }
+    .cards-container .card1{
+        margin-bottom: 32px;
+    }
 
     .be-OurChaletss .section-top .section-h1 {
         font-size: 18px;

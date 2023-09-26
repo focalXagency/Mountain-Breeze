@@ -301,7 +301,7 @@ async function restaurant11( restaurant) {
               <h1 class="card1-h1" >
               ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
               </h1>
-              <p class="card1-p" 
+              <p class="card1-p" >
             ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
               </p>
               <div class="card1-p2" >

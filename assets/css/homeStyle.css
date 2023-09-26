@@ -1285,6 +1285,9 @@ body {
         flex-wrap: wrap;
         transform: translateY(-55px);
     }
+    .ar .be-OurResidential .cards-container .card1 {
+        transform: translateY(-55px);
+    }
 
     .be-OurResidential .cards-container .card1 .img-card {
         width: 100%;
@@ -1516,9 +1519,10 @@ body {
         font-size: 8px;
     }
     .be-OurResidential .cards-container .card1  {
-        margin-bottom: 0;
+        margin-bottom: 32px;
 
     }
+   
     .be-OurResidential .cards-container .card1 .card-text {
 
         padding: 18px;
@@ -1533,7 +1537,6 @@ body {
         max-height: 163px;
 
     }
-
     .be-info .sec-header .video {
 
         height: 100px;
@@ -1553,6 +1556,11 @@ body {
         font-size: 11px;
     }
 
+    .be-OurRestaurants .cards-container .card2  {
+
+        margin-bottom: 32px;
+
+    }
     .be-OurRestaurants .cards-container .card2 .card-text {
 
         padding: 18px;
