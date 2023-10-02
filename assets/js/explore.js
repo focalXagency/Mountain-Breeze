@@ -309,7 +309,7 @@ async function restaurant11( restaurant) {
               </div>
        
             <div class="book">
-                <a href="./booking.html" class="btn--submit">Book Now</a>
+                <a href="./booking.html" class="btn--submit">${en.classList.contains("active") == true ?  "Book Now" : "احجز الآن"}</a>
             </div>
         </div>
     </div>
