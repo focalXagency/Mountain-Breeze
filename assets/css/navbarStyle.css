@@ -134,7 +134,7 @@
 
 .Navbar .menu2 .lang p:hover {
     color: var(--color-font);
-
+    cursor: pointer;
 }
 .Navbar .menu2 .lang p.active {
     color: var(--color-font);

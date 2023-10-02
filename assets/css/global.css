@@ -41,6 +41,7 @@ select {
   border: 0;
   outline: 0;
   font-family: var(--font-family);
+  /* font-family: Tajawal, sans-serif; */
 }
 
 ul {
