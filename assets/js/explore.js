@@ -528,7 +528,7 @@ async function Pool11(Pool) {
                       <div class="slider-container sc2">
                          ${e.images?.forEach((m) =>{
                             `<div class="slide-img1 simg2">
-                              <img src="./assets/img/Conferences/Conferences2.jpg" alt="">
+                              <img src=${m.path} alt="">
                           </div>`} )}
                        
                        
@@ -569,7 +569,7 @@ async function Pool11(Pool) {
                       <div class="slider-container sc2">
                          ${e.images?.forEach((m) =>{
                             `<div class="slide-img1 simg2">
-                              <img src="./assets/img/Conferences/Conferences2.jpg" alt="">
+                              <img src=${m.path} alt="">
                           </div>`} )}
                        
                        
