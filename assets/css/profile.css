@@ -1,0 +1,87 @@
+/* Hero styles */
+.hero {
+  min-height: 100vh;
+}
+.hero::before {
+  background-image: url("../img/heroRoom.jpg");
+}
+
+.hero h1 {
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 900;
+  margin-top: 218px;
+  margin-bottom: 26px;
+}
+.hero p {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.hero .download-link {
+  color: var(--color-secondary);
+  font-size: 2.7rem;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-bottom: 132px;
+  padding: 6px 20px;
+  background-color: #fff;
+}
+
+
+.profile__social {
+  display: none;
+  margin-bottom: 62px;
+}
+
+.profile__social p {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.profile__social a{
+    margin-right: 16px;
+}
+@media screen and (max-width: 930px) {
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  .hero p {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
+  .hero .download-link {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .profile__social {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-top: 280px;
+    margin-bottom: 8px;
+  }
+
+  .hero p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .hero .download-link {
+    font-size: 1.4rem;
+  }
+}
+/* End Hero Styles */
