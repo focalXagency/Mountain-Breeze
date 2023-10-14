@@ -126,31 +126,7 @@ const changeSectionHeaderAndParagraph = (value, header, paragraph) => {
   }
 };
 
-// **** Logic for scrolling ****
-const sectionsContainer = document.querySelector(".sections-container");
-// console.log(sectionsContainer);
 
-let isDragStart = false;
-let prevPageX, prevScrollLeft;
-
-sectionsContainer.addEventListener("mousedown", (e) => {
-  isDragStart = true;
-  prevPageX = e.pageX;
-  prevScrollLeft = sectionsContainer.scrollLeft;
-});
-
-sectionsContainer.addEventListener("mousemove", (e) => {
-  if (!isDragStart) return;
-  e.preventDefault();
-  let postionDiff = e.pageX - prevPageX;
-  sectionsContainer.scrollLeft = prevScrollLeft - postionDiff;
-});
-
-sectionsContainer.addEventListener("mouseup", () => {
-  isDragStart = false;
-});
-
-// **** End of logic for scrolling ****
 let imagesAndVideos = [];
 let images = [];
 let videos = [];

@@ -96,10 +96,23 @@
     padding-bottom: 52px;
   }
 }
+.sections-container::-webkit-scrollbar {
+  height: 0px;
+}
+
+.sections-container::-webkit-scrollbar-thumb {
+  background: rgb(240, 240, 240);
+  height: 0px;
+}
+
+.sections-container::-webkit-scrollbar-track {
+  background: rgb(240, 240, 240);
+}
+
 
 @media screen and (max-width: 600px) {
   .sections-container {
-    overflow-x: hidden;
+    overflow-x: auto;
   }
   .sections {
     min-width: 520px;
