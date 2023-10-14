@@ -110,11 +110,10 @@ let sliderInner=document.querySelector(".slider-inner");
 let scdot=document.querySelectorAll(".dot-sc")
 let pressed = false;
 let prevPageX, prevScrollLeft;
-let startx;
-let x;
+
 
 sliderSC.addEventListener('mousedown', (e)=>{
-    startx = true;
+  pressed = true;
   prevPageX = e.pageX;
   prevScrollLeft = sliderSC.scrollLeft;
     sliderSC.style.cursor='grabbing'
@@ -126,12 +125,12 @@ sliderSC.addEventListener('mouseup', ()=>{
 
 })
 window.addEventListener('mouseup', ()=>{
-    startx = false;
+  pressed = false;
 })
 
 
 sliderSC.addEventListener('mousemove', (e)=>{
-    if (!startx) return;
+    if (!pressed) return;
     e.preventDefault();
     let postionDiff = e.pageX - prevPageX;
     sliderSC.scrollLeft = prevScrollLeft - postionDiff;
@@ -145,8 +144,7 @@ scdot.forEach((i , k) => {
     sliderInner.children[0].focus();
    i.addEventListener('click', ()=>{
    
-  
-         console.log(k);
+
      
        console.log(sliderInner.children[k].clientWidth *  k )
            sliderSC.scrollLeft =  sliderInner.children[k].clientWidth *  k
@@ -164,11 +162,6 @@ scdot.forEach((i , k) => {
 
 let slide = sliderInner.querySelectorAll(".section-item")
 slide.forEach((i , k) => {
-
- 
-  
- 
-  
    sliderInner.addEventListener('mouseout', ()=>{
         if (i === document.activeElement)
         {

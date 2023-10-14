@@ -46,7 +46,7 @@ async function rooms11(room) {
   room.slice(-n).forEach((element, i) => {
 
     card += `
-        ${en.classList.contains("active") == true ? `<div class="card1"` : `<div class="card1 arfont"` }>
+        ${en.classList.contains("active") == true ? `<div class="card1"` : `<div class="card1 arfont"`}>
         <div class="img-card">
             <img src=${element.images[0]?.path} alt="">
         </div>
@@ -55,33 +55,32 @@ async function rooms11(room) {
             ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
             </h1>
             <p class="card1-p" >
-            ${element.floor} ${en.classList.contains("active") == true ? "floors" : "الطوابق"}
              ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar}
              </p>
-           <p class="card1-p2" >
+           <div class="card1-p2" >
             ${en.classList.contains("active") == true ? element.content.en : element.content.ar}
-            </p>
+            </div>
             <div class="Advantages">
             ${element.guests_number > 0 == true ? `<div class="Advantage">
                     <img src="./assets/img/icion/person.png" alt="">
-                    <p>${element.guests_number}${en.classList.contains("active") == true ?  "Persons" : " اشخاص" } </p>
+                    <p>${element.guests_number}${en.classList.contains("active") == true ? "Persons" : " اشخاص"} </p>
                 </div>`: " "}
                ${element.room_services > 0 == true ? `<div class="Advantage">
                     <img src="./assets/img/icion/room.png" alt="">
-                    <p>${en.classList.contains("active") == true ?  "Room Services" : "خدمة الغرف"}</p>
+                    <p>${en.classList.contains("active") == true ? "Room Services" : "خدمة الغرف"}</p>
                 </div>`: " "}
                 ${element.bed > 0 == true ? `<div class="Advantage">
                     <img src="./assets/img/icion/bed.png" alt="">
-                    <p> ${en.classList.contains("active") == true ?  " Kingsize Bed" : "أسرة ذو حجم كبير"}</p>
+                    <p> ${en.classList.contains("active") == true ? " Kingsize Bed" : "أسرة ذو حجم كبير"}</p>
                 </div>`: " "}
                 ${element.TV > 0 == true ? `<div class="Advantage">
                     <img src="./assets/img/icion/tv.png" alt="">
-                    <p>${en.classList.contains("active") == true ?  "TV" : "تلفاز"}</p>
+                    <p>${en.classList.contains("active") == true ? "TV" : "تلفاز"}</p>
                 </div>`: " "}
             </div>
             <div class="book">
-                <a href="./booking.html" class="btn--submit">${en.classList.contains("active") == true ?  "Book Now" : "احجز الآن"}</a>
-                <p><span>$${element.price}</span>${en.classList.contains("active") == true ?  "Per Night" : "لكل ليلة"}</p>
+                <a href="./booking.html" class="btn--submit">${en.classList.contains("active") == true ? "Book Now" : "احجز الآن"}</a>
+                <p><span>$${element.price}</span>${en.classList.contains("active") == true ? "Per Night" : "لكل ليلة"}</p>
             </div>
         </div>
     </div>
@@ -94,7 +93,7 @@ async function rooms11(room) {
   n = 3
   room.slice(-n).forEach((element, i) => {
 
-    card1 += `   ${en.classList.contains("active") == true ? `<div class="card"` : `<div class="card arfont"` }>
+    card1 += `   ${en.classList.contains("active") == true ? `<div class="card"` : `<div class="card arfont"`}>
           <div class="card-img">
               <img src=${element.images[0]?.path} alt="Room Img">
           </div>
@@ -103,14 +102,13 @@ async function rooms11(room) {
               ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
               </h2>
             <p class="card-p" >
-              ${element.floor} ${en.classList.contains("active") == true ? "floors" : "الطوابق"}
               ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar
       }</p>
               <div class="card-bottom">
-                  <a class="btn--submit " href="./booking.html">${en.classList.contains("active") == true ?  "Book Now" : "احجز الآن"}</a>
+                  <a class="btn--submit " href="./booking.html">${en.classList.contains("active") == true ? "Book Now" : "احجز الآن"}</a>
                   <div class="priceber">
                       <p class="price">$${element.price}</p>
-                      <p class="time">${en.classList.contains("active") == true ?  "Per Night" : "لكل ليلة"}</p>
+                      <p class="time">${en.classList.contains("active") == true ? "Per Night" : "لكل ليلة"}</p>
                   </div>
               </div>
           </div>
@@ -198,8 +196,8 @@ async function restaurant1(restaurant) {
    <div class="card-text">
         <h1 class="card2-h1" >
         ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
-        </h1>
-    <p class="card2-p" >
+        </h1> 
+        <p class="card2-p" >
         ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar}
         </p>
         <div class="card2-p2" >
