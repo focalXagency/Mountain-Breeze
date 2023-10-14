@@ -84,17 +84,17 @@
                 <h3 data-tr="contact-us-form-title">Do you have any questions?</h3>
                 <p data-tr="contact-us-form-para">Please fill in the below form and one of our agent will respond swiftly</p>
             </div>
-            <form action="">
+            <form action="./ContactUs.html" method="" id="form">
                 <dive class="ho-form-section">
                     <div class="ho-form-info-contact">
                         <div class="ho-form-name">
-                            <input type="text" name="" id=""   required>
+                            <input type="text"  id="Full_Name"   required>
                             <label for="text">
                                 <span class="text-name">Full name <span class="star">*</span></span>
                             </label>
                         </div>
                         <div class="ho-form-name">
-                            <input type="email" name="" id=""   required>
+                            <input type="email"  id="Email"   required>
                             <label for="email">
                                 <span class="text-name">Email <span class="star">*</span></span>
                             </label>
@@ -103,20 +103,20 @@
                     </div>
                     <div class="ho-form-info-contact">
                         <div class="ho-form-name">
-                            <input type="tel" name="" id=""  required>
+                            <input type="tel"  id="Phone"  required>
                             <label for="tel">
                                 <span class="text-name">Phone number <span class="star">*</span></span>
                             </label>
                         </div>
                         <div class="ho-form-name">
                             <img src="./assets/img/Vector.png" alt=""  >
-                    <select name="select" id=""  required  >
+                    <select  id="subject"  required  >
                         <option  ></option>
-                        <option value="" >complaint</option>
-                        <option value="" >information</option>
-                        <option value="">reservations</option>
-                        <option value="">Customer services</option>
-                        <option value="">other</option>
+                        <option value="complaint" >complaint</option>
+                        <option value="information" >information</option>
+                        <option value="reservations">reservations</option>
+                        <option value="Customer services">Customer services</option>
+                        <option value="other">other</option>
                     </select>
                     <label for="email">
                         <span class="text-name">Subject <span class="star">*</span></span>
@@ -125,17 +125,17 @@
                     </div>
                 </dive>
                 <div class="ho-text-area">
-                    <span class="ho-form-textarea">Your message <span class="star">*</span></span>
-                    <textarea name="" id="" cols="30" rows="10"  required onclick="hideMessage()"></textarea>
+                    <span class="ho-form-textarea" >Your message <span class="star">*</span></span>
+                    <textarea  id="content" cols="30" rows="10"  required onclick="hideMessage()"></textarea>
                 </div>
                 
                     
                 </textarea>
                 <div class="ho-form-checkbox">
-                    <input type="checkbox" name="" id="accept">
-                    <label for="accept" data-tr="contact-us-form-agree">I agree to submit my information via this form</label>
+                    <input type="checkbox" name="agree" id="accept" required>
+                    <label for="accept" data-tr="contact-us-form-agree" >I agree to submit my information via this form</label>
                 </div>
-                <button type="submit" data-tr="contact-us-form-send">Send</button>
+                <button id="submit" type="submit" data-tr="contact-us-form-send" >Send</button>
             </form>
         </div>
     </section>
@@ -287,8 +287,7 @@
             }, 10);
     </script>
     <script src="./assets/js/nav.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/translation.js"></script>
+    <script src="./assets/js/contact.js"></script>
     <script src="./assets/js/translation.js"></script>
 </body>
 </html>
