@@ -987,9 +987,7 @@ body {
     border-color: var(--color--primary);
 }
 
-.be-Conferences .btn .less {
-    display: none;
-}
+
 
 .be-Conferences .btn .btn-white:hover {
     background-color: var(--color--primary);
