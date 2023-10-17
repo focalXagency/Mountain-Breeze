@@ -6,15 +6,17 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
 
 
 }
 
 body {
     background-color: var(--color-background);
+    font-family: 'Montserrat', sans-serif;
 }
-
+.arfont{
+    font-family: 'Tajawal', sans-serif !important;
+}
 .be-header {
     position: relative;
 }
@@ -272,7 +274,7 @@ body {
 .clips .clip1 {
     left: 0px;
     width: 35%;
-    height: 522px;
+    height: 523px;
     clip-path: polygon(0% 0%, 100% 0%, 79% 115%, 0% 100%);
 
 
@@ -281,7 +283,7 @@ body {
 .clips .clip2 {
     left: 28%;
     width: 44%;
-    height: 522px;
+    height: 523px;
     clip-path: polygon(14% 0, 99% 0%, 85% 100%, 1% 100%);
 
 }
@@ -289,7 +291,7 @@ body {
 .clips .clip3 {
     left: 65%;
     width: 35%;
-    height: 522px;
+    height: 523px;
     clip-path: polygon(18% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
@@ -400,9 +402,6 @@ body {
 .be-OurResidential .cards-container .card1 .img-card img {
     width: 100%;
     height: 100%;
-
-
-
 }
 
 .be-OurResidential .cards-container .card1 .card-text {
@@ -984,7 +983,9 @@ body {
     }
 
     .be-OurResidential .cards-container .card1 {
-
+        transform: translateY(-70px);
+    }
+    .ar .be-OurResidential .cards-container .card1 {
         transform: translateY(-70px);
     }
 
@@ -1098,6 +1099,7 @@ body {
     .clips1 { 
         direction: ltr;  
         padding-bottom: 48px;
+        overflow: hidden;
 
     }
 
@@ -1235,7 +1237,7 @@ body {
 
     .be-OurResidential .sec-header .desc {
         font-size: 15px;
-        margin-right: 10%;
+     
     }
 
     .be-OurResidential .sec-header .btn-white {
@@ -1283,6 +1285,9 @@ body {
         flex-wrap: wrap;
         transform: translateY(-55px);
     }
+    .ar .be-OurResidential .cards-container .card1 {
+        transform: translateY(-55px);
+    }
 
     .be-OurResidential .cards-container .card1 .img-card {
         width: 100%;
@@ -1312,7 +1317,7 @@ body {
 
     .be-OurResidential .cards-container .card1 .card-text .card1-p2 {
         font-size: 10px;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
 
 
     }
@@ -1514,9 +1519,10 @@ body {
         font-size: 8px;
     }
     .be-OurResidential .cards-container .card1  {
-        margin-bottom: 0;
+        margin-bottom: 32px;
 
     }
+   
     .be-OurResidential .cards-container .card1 .card-text {
 
         padding: 18px;
@@ -1531,7 +1537,6 @@ body {
         max-height: 163px;
 
     }
-
     .be-info .sec-header .video {
 
         height: 100px;
@@ -1551,6 +1556,11 @@ body {
         font-size: 11px;
     }
 
+    .be-OurRestaurants .cards-container .card2  {
+
+        margin-bottom: 32px;
+
+    }
     .be-OurRestaurants .cards-container .card2 .card-text {
 
         padding: 18px;

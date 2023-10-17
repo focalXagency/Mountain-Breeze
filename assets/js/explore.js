@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 //slider hero
 
 const slidimg= document.querySelectorAll(".slide-img")
@@ -88,7 +96,7 @@ function showSlides() {
      }
     // current=slidnum;
    setActive();
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 
 
@@ -101,50 +109,33 @@ let sliderSC=document.querySelector(".slider-item");
 let sliderInner=document.querySelector(".slider-inner");
 let scdot=document.querySelectorAll(".dot-sc")
 let pressed = false;
-let startx;
-let x;
+let prevPageX, prevScrollLeft;
 
-sliderInner.addEventListener('mousedown', (e)=>{
-    pressed =true;
-    startx=e.offsetX - sliderInner.offsetLeft;
 
-    // sliderSC.style.cursor='grabbing'
+sliderSC.addEventListener('mousedown', (e)=>{
+  pressed = true;
+  prevPageX = e.pageX;
+  prevScrollLeft = sliderSC.scrollLeft;
+    sliderSC.style.cursor='grabbing'
 })
 
-sliderInner.addEventListener('mouseenter', ()=>{
+
+sliderSC.addEventListener('mouseup', ()=>{
     sliderInner.style.cursor='grab'
-})
-sliderInner.addEventListener('mouseup', ()=>{
-    sliderInner.style.cursor='grab'
+
 })
 window.addEventListener('mouseup', ()=>{
-    pressed= false
+  pressed = false;
 })
 
 
 sliderSC.addEventListener('mousemove', (e)=>{
-    if(!pressed)return;
+    if (!pressed) return;
     e.preventDefault();
-    x = e.offsetX;
-    console.log(sliderInner.offsetLeft);
-    sliderInner.style.left = `${x - startx }px`;
-   cheakboundary();
-   dacvtivedot(sliderInner.offsetLeft);
+    let postionDiff = e.pageX - prevPageX;
+    sliderSC.scrollLeft = prevScrollLeft - postionDiff;
 })
 
-function cheakboundary() {
-    let outer = sliderSC.getBoundingClientRect();
-    let inner = sliderInner.getBoundingClientRect();
-    if(parseInt(sliderInner.style.left) > 0){
-        sliderInner.style.left='0px'
-    }else if (inner.right < outer.right) {
-        sliderInner.style.left = `-${inner.width - outer.width }px`
-     
-    }
-
-
-}
-cheakboundary();
 
 //get slide
 
@@ -153,11 +144,10 @@ scdot.forEach((i , k) => {
     sliderInner.children[0].focus();
    i.addEventListener('click', ()=>{
    
-  
-         console.log(k);
+
      
-       
-           sliderInner.style.left = `-${k * 27}%`
+       console.log(sliderInner.children[k].clientWidth *  k )
+           sliderSC.scrollLeft =  sliderInner.children[k].clientWidth *  k
            sliderInner.children[k].focus();
         
             document.querySelector('.activedot').classList.remove('activedot');
@@ -170,284 +160,29 @@ scdot.forEach((i , k) => {
 
 })
 
-function dacvtivedot(b) {
+let slide = sliderInner.querySelectorAll(".section-item")
+slide.forEach((i , k) => {
+   sliderInner.addEventListener('mouseout', ()=>{
+        if (i === document.activeElement)
+        {
+            document.querySelector('.activedot').classList.remove('activedot')
+            scdot[k].classList.add('activedot');  
+        }
+   })
 
-            
-    };
-   
- 
 
-//slidercard1
-const slidimg1= document.querySelectorAll(".simg1")
-const slidecontainer1=document.querySelector(".sc1");
-const nextbtn1=document.querySelector(".pbtn1");
-const prevbtn1=document.querySelector(".nbtn1");
-const dots1=document.querySelector(".dots1");
-const numall1=document.querySelector(".all1");
-const cureentnum1=document.querySelector(".cureentnum1");
+    i.addEventListener('focus', ()=>{
+        document.querySelector('.activedot').classList.remove('activedot')
+        scdot[k].classList.add('activedot');
+    })
 
-//const
-let numImg1= slidimg1.length;
-numall1.innerHTML=slidimg1.length
-// let slideWidth1= slidimg1[0].clientWidth;
-let current1 = 0;
 
-// set up slider
+   })
 
-function inite1() {
-    slidimg1.forEach((img , i)=>{
-        img.style.left = i * 100 + "%";
-    });
-
-    slidimg1[0].classList.add("active");
-}
-
-inite1();
-
-
-
-//next button
-
-nextbtn1.addEventListener("click", ( )=>{
- 
-    if (current1 < numImg1-1) {
-        current1=current1 +1
-    }
-    else current1 = 0;
-    console.log(cureentnum1);
-    getslide1(current1)
-
-})
-//prev button
-prevbtn1.addEventListener("click", ( )=>{
- 
-    if (current1 <= 0) {
-       getslide1(numImg1 -1)
-      return;
-    }
-    else current1= current1 -1;
-    
-    getslide1(current1)
-    slidenum1();
-
-})
-
-function getslide1(slidnum1){
-    slidecontainer1.style.transform="translateX(-" + 100 * slidnum1 + "%";
-
-     current1=slidnum1;
-    setActive1();
-    slidenum1();
-}
-
-
-//active slide
-function setActive1(){
-    let cureentA1 = document.querySelector(".simg1.active");
-    cureentA1.classList.remove("active");
-    slidimg1[current1].classList.add("active");
-
-
-
-}
-
-
-//num slide
-
-
-function slidenum1(){
-    cureentnum1.innerHTML=current1 +1;
-   
-}
-
-slidenum1();
-
-
-
-
-
-//slide card 2
-const slidimg2= document.querySelectorAll(".simg2")
-const slidecontainer2=document.querySelector(".sc2");
-const nextbtn2=document.querySelector(".pbtn2");
-const prevbtn2=document.querySelector(".nbtn2");
-const numall2=document.querySelector(".all2");
-const cureentnum2=document.querySelector(".cureentnum2");
-
-
-//const
-let numImg2= slidimg2.length;
-numall2.innerHTML=slidimg2.length
-// let slideWidth1= slidimg1[0].clientWidth;
-let current2 = 0;
-
-// set up slider
-
-function inite2() {
-    slidimg2.forEach((img , i)=>{
-        img.style.left = i * 100 + "%";
-    });
-
-    slidimg2[0].classList.add("active");
-}
-
-inite2();
-
-
-
-//next button
-
-nextbtn2.addEventListener("click", ( )=>{
- 
-    if (current2 < numImg2-1) {
-        current2=current2 +1
-    }
-    else current2 = 0;
-    getslide2(current2)
-
-})
-//prev button
-prevbtn2.addEventListener("click", ( )=>{
- 
-    if (current2 <= 0) {
-       getslide2(numImg2 -1)
-      return;
-    }
-    else current2= current2 -1;
-    
-    getslide2(current2)
-    slidenum2();
-
-})
-
-function getslide2(slidnum2){
-    slidecontainer2.style.transform="translateX(-" + 100 * slidnum2 + "%";
-
-     current2=slidnum2;
-    setActive2();
-    slidenum2();
-}
-
-
-//active slide
-function setActive2(){
-    let cureentA2 = document.querySelector(".simg2.active");
-    cureentA2.classList.remove("active");
-    slidimg2[current2].classList.add("active");
-
-
-
-}
-
-
-//num slide
-
-
-function slidenum2(){
-    cureentnum2.innerHTML=current2 +1;
-   
-}
-
-slidenum2();
-
-
-
-
-
-
-
-
-
-//slide card 3
-const slidimg3= document.querySelectorAll(".simg3")
-const slidecontainer3=document.querySelector(".sc3");
-const nextbtn3=document.querySelector(".pbtn3");
-const prevbtn3=document.querySelector(".nbtn3");
-const numall3=document.querySelector(".all3");
-const cureentnum3=document.querySelector(".cureentnum3");
-
-
-//const
-let numImg3= slidimg3.length;
-numall3.innerHTML=slidimg3.length
-// let slideWidth1= slidimg1[0].clientWidth;
-let current3 = 0;
-
-// set up slider
-
-function inite3() {
-    slidimg3.forEach((img , i)=>{
-        img.style.left = i * 100 + "%";
-    });
-
-    slidimg3[0].classList.add("active");
-}
-
-inite3();
-
-
-
-//next button
-
-nextbtn3.addEventListener("click", ( )=>{
- 
-    if (current3 < numImg3-1) {
-        current3=current3 +1
-    }
-    else current3 = 0;
-    getslide3(current3)
-    slidenum3();
-
-})
-//prev button
-prevbtn3.addEventListener("click", ( )=>{
- 
-    if (current3 <= 0) {
-       getslide3(numImg3 -1)
-      return;
-    }
-    else current3= current3 -1;
-    
-    getslide3(current3)
-    slidenum3();
-
-})
-
-function getslide3(slidnum3){
-    slidecontainer3.style.transform="translateX(-" + 100 * slidnum3 + "%";
-
-     current3=slidnum3;
-    setActive3();
-    slidenum3();
-}
-
-
-//active slide
-function setActive3(){
-    let cureentA3 = document.querySelector(".simg3.active");
-    cureentA3.classList.remove("active");
-    slidimg3[current3].classList.add("active");
-
-
-
-}
-
-
-//num slide
-
-
-function slidenum3(){
-    cureentnum3.innerHTML=current3 +1;
-   
-}
-
-slidenum3();
 
 
 // clips
 let width =window.innerWidth
-
-
 
 window.addEventListener("resize" , ()=>{
 
@@ -472,6 +207,608 @@ if (width <=800) {
    document.querySelector("#clips").classList.remove('clips');
   }
 
+// 
+
+  let restaurant;
+ 
+  async function restaurant1() {
+    const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Restaurant");
+    const data = await response.json();
+    restaurant = data.data;
+    restaurant11( restaurant)
+} 
+async function restaurant11( restaurant) {
+    let card = ""
+    let en = document.querySelector(".en")
+     
+      restaurant.forEach((element, i) => {
+  
+          card += `
+          ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
+          <div class="img-card">
+              <img src=${element.article_cover} alt="">
+          </div>
+         <div class="card-text">
+             <h1 class="card2-h1" >
+              ${en.classList.contains("active") == true ? element.title.en : element.title.ar}
+              </h1>
+          <p class="card2-p" >
+              ${en.classList.contains("active") == true ? element.sub_title.en : element.sub_title.ar}
+              </p>
+            <div class="card2-p2" >
+              ${en.classList.contains("active") == true ? element.description.en : element.description.ar}
+              </div>
+          </div>
+      </div>
+       
+        `
+        
+    
+      })
+  
+    
+    
+    
+   
+      
+  
+   
+      document.querySelector(".container1").innerHTML = card
+      document.querySelector(".ar").addEventListener('click', () => {
+        restaurant11(restaurant)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        restaurant11(restaurant)
+      })
+      
+      
+      }
+  
+      restaurant1();
+  
+// fetch rome data and show it
+
+  let Chalet;
+
+  async function Chalet1() {
+    const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Chalet");
+    const data = await response.json();
+    Chalet = data.data;
+    Chalet11(Chalet) 
+  }
+  
+  async function Chalet11(Chalet) {
+    let card = ""
+
+    let en = document.querySelector(".en")
+     
+    Chalet.forEach((element, i) => {
+
+        card += `
+        ${en.classList.contains("active")== true ?` <div class="card1">` : ` <div class="card1 arfont">`}
+        <div class="img-card">
+            <img src=${element.article_cover} alt="">
+        </div>
+        <div class="card-text">
+              <h1 class="card1-h1" >
+              ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
+              </h1>
+              <p class="card1-p" >
+            ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
+              </p>
+              <div class="card1-p2" >
+            ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
+              </div>
+       
+            <div class="book">
+                <a href="./booking.html" class="btn--submit">${en.classList.contains("active") == true ?  "Book Now" : "احجز الآن"}</a>
+            </div>
+        </div>
+    </div>
+      `
+      
+  
+    })
+      document.querySelector(".container2").innerHTML = card
+      document.querySelector(".ar").addEventListener('click', () => {
+        Chalet11(Chalet)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        Chalet11(Chalet)
+      })
+      }
+    
+      Chalet1()
+
+      // fetch Activity data and show it
+      let Activity;
+
+      async function Activity1() {
+        const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Activity");
+        const data = await response.json();
+        Activity = data.data; 
+        Activity11(Activity)
+      }
+      async function Activity11(Activity) {
+        let card = ""
+       
+    let en = document.querySelector(".en")
+     
+    Activity.forEach((element, i) => {
+
+    
+        card += `
+        ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
+        <div class="img-card">
+            <img src=${element.article_cover} alt="">
+        </div>
+       <div class="card-text">
+            <h1 class="card2-h1" >
+            ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
+            </h1>
+            <p class="card2-p" >
+            ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
+            </p>
+            <div class="card2-p2" >
+            ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
+            </div>
+        </div>
+    </div>
+      `
+      
+  
+    })
+          
+      
+       
+          document.querySelector(".container3").innerHTML = card
+         
+          document.querySelector(".ar").addEventListener('click', () => {
+            Activity11(Activity)
+          })
+        
+          document.querySelector(".en").addEventListener('click', () => {
+            Activity11(Activity)
+          })
+          
+          }
+      
+          Activity1();
+
+// fetch Nature data and show it
+let Nature;
+
+async function Nature1() {
+  const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Nature");
+  const data = await response.json();
+  Nature = data.data; 
+  Nature11(Nature)
+}
+async function Nature11(Nature) {
+  let card = ""
+  let en = document.querySelector(".en")
+     
+  Nature.forEach((element, i) => {
+
+ 
+    card += `
+    ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
+        <div class="img-card">
+        <img src=${element.article_cover} alt="">
+        </div>
+     <div class="card-text">
+         <h1 class="card2-h1" >
+         ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
+         </h1>
+         <p class="card2-p" >
+         ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
+         </p>
+         <div class="card2-p2" >
+         ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
+         </div>
+     </div>
+</div>
+  `
+    
+
+  })
+    
+
+ 
+    document.querySelector(".container4").innerHTML = card
+    document.querySelector(".ar").addEventListener('click', () => {
+        Nature11(Nature)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        Nature11(Nature)
+      })
+    
+    }
+
+    Nature1();
+    // fetch Pool data and show it
+let Pool;
+
+async function Pool1() {
+  const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Pool");
+  const data = await response.json();
+  Pool = data.data; 
+  Pool11(Pool)
+}
+async function Pool11(Pool) {
+  let card = ""
+
+   let en = document.querySelector(".en")
+     
+   Pool.forEach((element, i) => {
+
+    
+    card += `
+    ${en.classList.contains("active")== true ?` <div class="card2">` : ` <div class="card2 arfont">`}
+          <div class="img-card">
+              <img src=${element.article_cover} alt="">
+          </div>
+         <div class="card-text">
+              <h1 class="card2-h1" >
+              ${en.classList.contains("active")== true ? element.title.en : element.title.ar }
+              </h1>
+              <p class="card2-p" >
+              ${en.classList.contains("active")== true ? element.sub_title.en : element.sub_title.ar}
+              </p>
+              <div class="card2-p2" >
+              ${en.classList.contains("active")== true ? element.description.en : element.description.ar}
+              </div>
+          </div>
+      </div>
+  `
+    
+
+  })
+ 
+    document.querySelector(".container5").innerHTML = card
+   
+    document.querySelector(".ar").addEventListener('click', () => {
+        Pool11(Pool)
+      })
+    
+      document.querySelector(".en").addEventListener('click', () => {
+        Pool11(Pool)
+      })
+    
+    
+    
+    }
+
+    Pool1();
+
+
+// fetch event data and show it
+      let events1;
+
+  async function events() {
+    const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Events");
+    const data = await response.json();
+    events1 = data.data;
+    events11(events1)
+       // display none for all card expet fisrt tow 
+   let  cards =   document.querySelector(".container6").querySelectorAll('.card3')
+   for (let index = 0; index < cards.length; index++) {
+    const element = cards[index];
+    if (index > 1) {
+      element.style.display = "none"
+ 
+    }
+   } 
+  }
+  async function events11(events1){
+    let card = ""
+    let card1=""
+    let imge =""
+    let en = document.querySelector(".en")
+    events1.forEach((e) => {
+     let category =   e.category
+  
+ 
+    if (category  == "Resort Events" ){
+
+          card += `    
+          ${en.classList.contains("active")== true ?` <div class="card3">` : ` <div class="card3 arfont">`}
+              <div class="img-card">
+                  <div class="slider slider2" id="2">
+                      <button class="prev-btn pbtn2">
+                          <img src="./assets/img/icion/nextaroww.png" alt="prev">
+                      </button>
+                      <button class="next-btn nbtn2">
+                          <img src="./assets/img/icion/prevaroww.png" alt="next">
+                      </button>
+              
+                      <div class="slider-container sc2">
+                         ${e.images?.forEach((m) =>{
+                            imge +=`<div class="slide-img1 simg2">
+                              <img src=${m.path} alt="">
+                          </div>`} )}
+                          ${document.querySelector(".sc2").innerHTML = imge}
+                       
+                      </div>
+          
+              
+                      <div class="num1">
+                          <p style="direction: ltr;"><span class="cureentnum"></span> of <span class=" all"></span></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-text">
+                    <h1 class="card3-h1" >
+                    ${en.classList.contains("active")== true ? e.title.en : e.title.ar }
+                    </h1>
+                    <p class="card3-p" >
+                  ${en.classList.contains("active")== true ? e.sub_title.en : e.sub_title.ar}
+                    </p>
+                  <div class="card3-p2" >
+                  ${en.classList.contains("active")== true ? e.description.en : e.description.ar}
+                  </div>
+              </div>
+            
+          </div>
+
+        `
+ 
+    
+    
+      }})
+
+
+ 
+document.querySelector(".ar").addEventListener('click', () => {
+    events11(events1)
+  })
+
+  document.querySelector(".en").addEventListener('click', () => {
+    events11(events1)
+  })
+   
+    
+  document.querySelector(".container6").innerHTML = card
+
+           //slider card img
+       let allcard = document.querySelectorAll(".card3")
+              for (let i = 0; i < allcard.length; i++) {
+           const slidimg3= allcard[i].querySelectorAll(".slide-img1")
+           const slidecontainer3=allcard[i].querySelector(".slider-container");
+           const nextbtn3=allcard[i].querySelector(".prev-btn");
+           const prevbtn3=allcard[i].querySelector(".next-btn ");
+           const numall3=allcard[i].querySelector(".all");
+           const cureentnum3=allcard[i].querySelector(".cureentnum");
+           //const
+           let numImg3= slidimg3.length;
+           numall3.innerHTML=slidimg3.length;
+           let current3 = 0;
+           // set up slider
+           function inite3() {
+               slidimg3.forEach((img , i)=>{
+                   img.style.left = i * 100 + "%";
+               });
+           
+               slidimg3[0]?.classList.add("active");
+           }
+           inite3();
+           //next button
+           nextbtn3.addEventListener("click", ( )=>{
+               if (current3 < numImg3-1) {
+                   current3=current3 +1
+               }
+               else current3 = 0;
+               getslide3(current3)
+               slidenum3();
+           
+           })
+           //prev button
+           prevbtn3.addEventListener("click", ( )=>{
+            
+               if (current3 <= 0) {
+                  getslide3(numImg3 -1)
+                 return;
+               }
+               else current3= current3 -1;
+               
+               getslide3(current3)
+               slidenum3();
+           
+           })
+           function getslide3(slidnum3){
+               slidecontainer3.style.transform="translateX(-" + 100 * slidnum3 + "%";
+           
+                current3=slidnum3;
+               setActive3();
+               slidenum3();
+           }
+           //active slide
+           function setActive3(){
+               let cureentA3 = allcard[i].querySelector(".slide-img1.active");
+               cureentA3?.classList.remove("active");
+               slidimg3[current3]?.classList.add("active");
+           } 
+           //num slide
+           
+           
+           function slidenum3(){
+               cureentnum3.innerHTML=current3 +1;
+              
+           }
+           
+           slidenum3();
+           
+       }
+
+      
+  
+      }
+   
+      events()
+
+ //view more Resort Events 
+ document.querySelector(".view").addEventListener('click', ()=>{
+  let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
+  for (let index = 0; index < cards.length; index++) {
+   const element = cards[index];
+   if (index > 1 ) {
+  
+     element.style.display = "flex"
+      
+   }
+   
+  }
+
+})
+      
+
+
+//FRTCH SPORT EVENTS
+  async function eventsS() {
+    const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Events");
+    const data = await response.json();
+    events1 = data.data;
+    eventsS11(events1)
+  }
+  async function eventsS11(events1){
+    
+    let card1=""
+    let imge =""
+    let en = document.querySelector(".en")
+    events1.forEach((e) => {
+     let category =   e.category
+    if (category  == "Sport Events" ){
+ 
+    card1 += `    
+     ${en.classList.contains("active")== true ?` <div class="card3">` : ` <div class="card3 arfont">`}
+              <div class="img-card">
+                  <div class="slider slider2" id="2">
+                      <button class="prev-btn pbtn2">
+                          <img src="./assets/img/icion/nextaroww.png" alt="prev">
+                      </button>
+                      <button class="next-btn nbtn2">
+                          <img src="./assets/img/icion/prevaroww.png" alt="next">
+                      </button>
+              
+                      <div class="slider-container sc2">
+                      ${e.images?.forEach((m) =>{
+                        imge +=`<div class="slide-img1 simg2">
+                          <img src=${m.path} alt="">
+                      </div>`} )}
+                      ${document.querySelector(".sc2").innerHTML = imge}
+                       
+                       
+                      </div>
+          
+              
+                      <div class="num1">
+                          <p style="direction: ltr;"><span class="cureentnum"></span> of <span class=" all"></span></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="card-text">
+                    <h1 class="card3-h1" >
+                    ${en.classList.contains("active")== true ? e.title.en : e.title.ar }
+                    </h1>
+                  <p class="card3-p" >
+                  ${en.classList.contains("active")== true ? e.sub_title.en : e.sub_title.ar}
+                  </p>
+                  <div class="card3-p2" >
+                  ${en.classList.contains("active")== true ? e.description.en : e.description.ar}
+                  </div>
+              </div>
+            
+          </div>
+`   
+}})
+
+
+ 
+document.querySelector(".ar").addEventListener('click', () => {
+    events11(events1)
+  })
+
+  document.querySelector(".en").addEventListener('click', () => {
+    events11(events1)
+  })
+
+            document.querySelector(".container7").innerHTML = card1
+           //slider card img
+           let allcard = document.querySelectorAll(".card3")
+           for (let i = 0; i < allcard.length; i++) {
+               const slidimg3= allcard[i].querySelectorAll(".slide-img1")
+               const slidecontainer3=allcard[i].querySelector(".slider-container");
+               const nextbtn3=allcard[i].querySelector(".prev-btn");
+               const prevbtn3=allcard[i].querySelector(".next-btn ");
+               const numall3=allcard[i].querySelector(".all");
+               const cureentnum3=allcard[i].querySelector(".cureentnum");
+               //const
+               let numImg3= slidimg3.length;
+               numall3.innerHTML=slidimg3.length;
+               let current3 = 0;
+               // set up slider
+               function inite3() {
+                   slidimg3.forEach((img , i)=>{
+                       img.style.left = i * 100 + "%";
+                   });
+               
+                   slidimg3[0]?.classList.add("active");
+               }
+               
+               inite3();
+               //next button
+               nextbtn3.addEventListener("click", ( )=>{
+                
+                   if (current3 < numImg3-1) {
+                       current3=current3 +1
+                   }
+                   else current3 = 0;
+                   getslide3(current3)
+                   slidenum3();
+               
+               })
+               //prev button
+               prevbtn3.addEventListener("click", ( )=>{
+                
+                   if (current3 <= 0) {
+                      getslide3(numImg3 -1)
+                     return;
+                   }
+                   else current3= current3 -1;
+                   
+                   getslide3(current3)
+                   slidenum3();
+               })
+               
+               function getslide3(slidnum3){
+                   slidecontainer3.style.transform="translateX(-" + 100 * slidnum3 + "%";
+               
+                    current3=slidnum3;
+                   setActive3();
+                   slidenum3();
+               }
+               //active slide
+               function setActive3(){
+                   let cureentA3 = allcard[i].querySelector(".slide-img1.active");
+                   cureentA3?.classList.remove("active");
+                   slidimg3[current3]?.classList.add("active");
+               }
+               //num slide
+               function slidenum3(){
+                   cureentnum3.innerHTML=current3 +1;
+                  
+               }
+               
+               slidenum3();
+               
+           }    
+
+      }
+   
+      eventsS()
 
 
 
