@@ -393,6 +393,7 @@ setTimeout(() => {
         element.style.fontFamily  = "'Tajawal', sans-serif";
         document.querySelector("body").style.direction = "rtl";
      });
+ 
  });
 
  enElement.addEventListener('click', () => {
@@ -407,4 +408,5 @@ setTimeout(() => {
         element.style.fontFamily  = "";
         document.querySelector("body").style.direction = "ltr";
      });
+
  });
