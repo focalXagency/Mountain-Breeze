@@ -110,11 +110,10 @@ let sliderInner=document.querySelector(".slider-inner");
 let scdot=document.querySelectorAll(".dot-sc")
 let pressed = false;
 let prevPageX, prevScrollLeft;
-let startx;
-let x;
+
 
 sliderSC.addEventListener('mousedown', (e)=>{
-    startx = true;
+  pressed = true;
   prevPageX = e.pageX;
   prevScrollLeft = sliderSC.scrollLeft;
     sliderSC.style.cursor='grabbing'
@@ -126,12 +125,12 @@ sliderSC.addEventListener('mouseup', ()=>{
 
 })
 window.addEventListener('mouseup', ()=>{
-    startx = false;
+  pressed = false;
 })
 
 
 sliderSC.addEventListener('mousemove', (e)=>{
-    if (!startx) return;
+    if (!pressed) return;
     e.preventDefault();
     let postionDiff = e.pageX - prevPageX;
     sliderSC.scrollLeft = prevScrollLeft - postionDiff;
@@ -145,8 +144,7 @@ scdot.forEach((i , k) => {
     sliderInner.children[0].focus();
    i.addEventListener('click', ()=>{
    
-  
-         console.log(k);
+
      
        console.log(sliderInner.children[k].clientWidth *  k )
            sliderSC.scrollLeft =  sliderInner.children[k].clientWidth *  k
@@ -164,11 +162,6 @@ scdot.forEach((i , k) => {
 
 let slide = sliderInner.querySelectorAll(".section-item")
 slide.forEach((i , k) => {
-
- 
-  
- 
-  
    sliderInner.addEventListener('mouseout', ()=>{
         if (i === document.activeElement)
         {
@@ -309,7 +302,7 @@ async function restaurant11( restaurant) {
               </div>
        
             <div class="book">
-                <a href="./booking.html" class="btn--submit">Book Now</a>
+                <a href="./booking.html" class="btn--submit">${en.classList.contains("active") == true ?  "Book Now" : "احجز الآن"}</a>
             </div>
         </div>
     </div>
@@ -500,20 +493,27 @@ async function Pool11(Pool) {
     const data = await response.json();
     events1 = data.data;
     events11(events1)
+       // display none for all card expet fisrt tow 
+   let  cards =   document.querySelector(".container6").querySelectorAll('.card3')
+   for (let index = 0; index < cards.length; index++) {
+    const element = cards[index];
+    if (index > 1) {
+      element.style.display = "none"
+ 
+    }
+   } 
   }
   async function events11(events1){
     let card = ""
     let card1=""
+    let imge =""
     let en = document.querySelector(".en")
     events1.forEach((e) => {
      let category =   e.category
   
  
-    category  == "Resort Events" ? 
-     
-   
-    
-  
+    if (category  == "Resort Events" ){
+
           card += `    
           ${en.classList.contains("active")== true ?` <div class="card3">` : ` <div class="card3 arfont">`}
               <div class="img-card">
@@ -527,10 +527,10 @@ async function Pool11(Pool) {
               
                       <div class="slider-container sc2">
                          ${e.images?.forEach((m) =>{
-                            `<div class="slide-img1 simg2">
-                              <img src="./assets/img/Conferences/Conferences2.jpg" alt="">
+                            imge +=`<div class="slide-img1 simg2">
+                              <img src=${m.path} alt="">
                           </div>`} )}
-                       
+                          ${document.querySelector(".sc2").innerHTML = imge}
                        
                       </div>
           
@@ -555,7 +555,134 @@ async function Pool11(Pool) {
           </div>
 
         `
-     :    card1 += `    
+ 
+    
+    
+      }})
+
+
+ 
+document.querySelector(".ar").addEventListener('click', () => {
+    events11(events1)
+  })
+
+  document.querySelector(".en").addEventListener('click', () => {
+    events11(events1)
+  })
+   
+    
+  document.querySelector(".container6").innerHTML = card
+
+           //slider card img
+       let allcard = document.querySelectorAll(".card3")
+              for (let i = 0; i < allcard.length; i++) {
+           const slidimg3= allcard[i].querySelectorAll(".slide-img1")
+           const slidecontainer3=allcard[i].querySelector(".slider-container");
+           const nextbtn3=allcard[i].querySelector(".prev-btn");
+           const prevbtn3=allcard[i].querySelector(".next-btn ");
+           const numall3=allcard[i].querySelector(".all");
+           const cureentnum3=allcard[i].querySelector(".cureentnum");
+           //const
+           let numImg3= slidimg3.length;
+           numall3.innerHTML=slidimg3.length;
+           let current3 = 0;
+           // set up slider
+           function inite3() {
+               slidimg3.forEach((img , i)=>{
+                   img.style.left = i * 100 + "%";
+               });
+           
+               slidimg3[0]?.classList.add("active");
+           }
+           inite3();
+           //next button
+           nextbtn3.addEventListener("click", ( )=>{
+               if (current3 < numImg3-1) {
+                   current3=current3 +1
+               }
+               else current3 = 0;
+               getslide3(current3)
+               slidenum3();
+           
+           })
+           //prev button
+           prevbtn3.addEventListener("click", ( )=>{
+            
+               if (current3 <= 0) {
+                  getslide3(numImg3 -1)
+                 return;
+               }
+               else current3= current3 -1;
+               
+               getslide3(current3)
+               slidenum3();
+           
+           })
+           function getslide3(slidnum3){
+               slidecontainer3.style.transform="translateX(-" + 100 * slidnum3 + "%";
+           
+                current3=slidnum3;
+               setActive3();
+               slidenum3();
+           }
+           //active slide
+           function setActive3(){
+               let cureentA3 = allcard[i].querySelector(".slide-img1.active");
+               cureentA3?.classList.remove("active");
+               slidimg3[current3]?.classList.add("active");
+           } 
+           //num slide
+           
+           
+           function slidenum3(){
+               cureentnum3.innerHTML=current3 +1;
+              
+           }
+           
+           slidenum3();
+           
+       }
+
+      
+  
+      }
+   
+      events()
+
+ //view more Resort Events 
+ document.querySelector(".view").addEventListener('click', ()=>{
+  let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
+  for (let index = 0; index < cards.length; index++) {
+   const element = cards[index];
+   if (index > 1 ) {
+  
+     element.style.display = "flex"
+      
+   }
+   
+  }
+
+})
+      
+
+
+//FRTCH SPORT EVENTS
+  async function eventsS() {
+    const response = await fetch("https://mountain.lavetro-agency.com/api/dashboard/explores?category=Events");
+    const data = await response.json();
+    events1 = data.data;
+    eventsS11(events1)
+  }
+  async function eventsS11(events1){
+    
+    let card1=""
+    let imge =""
+    let en = document.querySelector(".en")
+    events1.forEach((e) => {
+     let category =   e.category
+    if (category  == "Sport Events" ){
+ 
+    card1 += `    
      ${en.classList.contains("active")== true ?` <div class="card3">` : ` <div class="card3 arfont">`}
               <div class="img-card">
                   <div class="slider slider2" id="2">
@@ -567,10 +694,11 @@ async function Pool11(Pool) {
                       </button>
               
                       <div class="slider-container sc2">
-                         ${e.images?.forEach((m) =>{
-                            `<div class="slide-img1 simg2">
-                              <img src="./assets/img/Conferences/Conferences2.jpg" alt="">
-                          </div>`} )}
+                      ${e.images?.forEach((m) =>{
+                        imge +=`<div class="slide-img1 simg2">
+                          <img src=${m.path} alt="">
+                      </div>`} )}
+                      ${document.querySelector(".sc2").innerHTML = imge}
                        
                        
                       </div>
@@ -594,10 +722,8 @@ async function Pool11(Pool) {
               </div>
             
           </div>
-`
-    
-    
-})
+`   
+}})
 
 
  
@@ -608,46 +734,22 @@ document.querySelector(".ar").addEventListener('click', () => {
   document.querySelector(".en").addEventListener('click', () => {
     events11(events1)
   })
-   
-       // display none for all card expet fisrt tow 
-            document.querySelector(".container6").innerHTML = card
+
             document.querySelector(".container7").innerHTML = card1
-  
-      let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
-           for (let index = 0; index < cards.length; index++) {
-            const element = cards[index];
-            if (index > 1) {
-              element.style.display = "none"
-         
-            }
-           } 
-
-
-
            //slider card img
            let allcard = document.querySelectorAll(".card3")
-       
-
            for (let i = 0; i < allcard.length; i++) {
-              
-             
-           
-           
                const slidimg3= allcard[i].querySelectorAll(".slide-img1")
                const slidecontainer3=allcard[i].querySelector(".slider-container");
                const nextbtn3=allcard[i].querySelector(".prev-btn");
                const prevbtn3=allcard[i].querySelector(".next-btn ");
                const numall3=allcard[i].querySelector(".all");
                const cureentnum3=allcard[i].querySelector(".cureentnum");
-            
-               
                //const
                let numImg3= slidimg3.length;
                numall3.innerHTML=slidimg3.length;
                let current3 = 0;
-               
                // set up slider
-               
                function inite3() {
                    slidimg3.forEach((img , i)=>{
                        img.style.left = i * 100 + "%";
@@ -657,11 +759,7 @@ document.querySelector(".ar").addEventListener('click', () => {
                }
                
                inite3();
-               
-               
-               
                //next button
-               
                nextbtn3.addEventListener("click", ( )=>{
                 
                    if (current3 < numImg3-1) {
@@ -683,7 +781,6 @@ document.querySelector(".ar").addEventListener('click', () => {
                    
                    getslide3(current3)
                    slidenum3();
-               
                })
                
                function getslide3(slidnum3){
@@ -693,22 +790,13 @@ document.querySelector(".ar").addEventListener('click', () => {
                    setActive3();
                    slidenum3();
                }
-               
-               
                //active slide
                function setActive3(){
                    let cureentA3 = allcard[i].querySelector(".slide-img1.active");
                    cureentA3?.classList.remove("active");
                    slidimg3[current3]?.classList.add("active");
-               
-               
-               
                }
-               
-               
                //num slide
-               
-               
                function slidenum3(){
                    cureentnum3.innerHTML=current3 +1;
                   
@@ -716,46 +804,12 @@ document.querySelector(".ar").addEventListener('click', () => {
                
                slidenum3();
                
-           }
-            
-          
-      
+           }    
+
       }
-    
-      events()
+   
+      eventsS()
 
-    
-
-
-
-//view more event && less event
-      
-document.querySelector(".view").addEventListener('click', ()=>{
-    let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
-    for (let index = 0; index < cards.length; index++) {
-     const element = cards[index];
-     if (index > 1 ) {
-    
-       element.style.display = "flex"
-        
-     }
-    }
-    document.querySelector(".less").style.display = "flex"
-    document.querySelector(".view").style.display = "none"
-})
-document.querySelector(".less").addEventListener('click', ()=>{
-    let  cards =  document.querySelector(".container6").querySelectorAll('.card3')
-    for (let index = 0; index < cards.length; index++) {
-     const element = cards[index];
-     if (index > 1 ) {
-      
-       element.style.display = "none"
-        
-     }
-    }
-    document.querySelector(".less").style.display = "none"
-    document.querySelector(".view").style.display = "flex"
-})
 
 
 
